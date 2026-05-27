@@ -5,3 +5,6 @@ playwright-report
 coverage
 dist
 .env.local
+graphify-out/cache/
+graphify-out/manifest.json
+graphify-out/cost.json
