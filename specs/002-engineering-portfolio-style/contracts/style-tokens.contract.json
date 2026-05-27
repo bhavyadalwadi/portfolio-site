@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Style Token Contract",
+  "type": "object",
+  "required": ["colors", "typography", "spacing", "motion"],
+  "properties": {
+    "colors": {
+      "type": "object",
+      "required": ["background", "textPrimary", "textSecondary", "accent", "surface", "border"],
+      "properties": {
+        "background": { "type": "string" },
+        "textPrimary": { "type": "string" },
+        "textSecondary": { "type": "string" },
+        "accent": { "type": "string" },
+        "surface": { "type": "string" },
+        "border": { "type": "string" }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": ["headingFamily", "bodyFamily", "monoFamily", "scale"],
+      "properties": {
+        "headingFamily": { "type": "string" },
+        "bodyFamily": { "type": "string" },
+        "monoFamily": { "type": "string" },
+        "scale": {
+          "type": "object",
+          "required": ["hero", "h1", "h2", "body", "meta"],
+          "properties": {
+            "hero": { "type": "string" },
+            "h1": { "type": "string" },
+            "h2": { "type": "string" },
+            "body": { "type": "string" },
+            "meta": { "type": "string" }
+          }
+        }
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "required": ["section", "block", "inline"],
+      "properties": {
+        "section": { "type": "string" },
+        "block": { "type": "string" },
+        "inline": { "type": "string" }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "required": ["hoverDurationMs", "revealDurationMs", "easing", "maxIntensity"],
+      "properties": {
+        "hoverDurationMs": { "type": "number", "maximum": 200 },
+        "revealDurationMs": { "type": "number", "maximum": 400 },
+        "easing": { "type": "string" },
+        "maxIntensity": { "type": "string", "enum": ["subtle"] }
+      }
+    }
+  }
+}

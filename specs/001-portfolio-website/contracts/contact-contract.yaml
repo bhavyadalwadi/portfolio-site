@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Portfolio Contact Contract
+  version: 1.0.0
+paths:
+  /api/contact:
+    post:
+      summary: Submit a portfolio inquiry
+      operationId: submitContact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+                - message
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 80
+                email:
+                  type: string
+                  format: email
+                subject:
+                  type: string
+                  maxLength: 120
+                message:
+                  type: string
+                  minLength: 20
+                  maxLength: 2000
+                sourcePage:
+                  type: string
+      responses:
+        '202':
+          description: Submission accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, messageId]
+                properties:
+                  status:
+                    type: string
+                    enum: [received]
+                  messageId:
+                    type: string
+        '400':
+          description: Invalid submission
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, errors]
+                properties:
+                  status:
+                    type: string
+                    enum: [rejected]
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required: [field, issue]
+                      properties:
+                        field:
+                          type: string
+                        issue:
+                          type: string
+        '503':
+          description: Submission service unavailable
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, message]
+                properties:
+                  status:
+                    type: string
+                    enum: [failed]
+                  message:
+                    type: string

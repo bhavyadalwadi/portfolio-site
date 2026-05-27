@@ -1,0 +1,128 @@
+{
+  "basics": {
+    "name": "Bhavya Dalwadi",
+    "headline": "Senior Frontend Engineer",
+    "location": "San Jose, California",
+    "summary": "Senior Frontend Engineer with 8+ years of experience building large-scale web platforms, product systems, and complex user interfaces. Increasingly focused on AI-enabled workflows, structured evaluation, and practical tools built with systems judgment.",
+    "email": "Use the contact page for the fastest response"
+  },
+  "skills": {
+    "primary": ["React", "TypeScript", "JavaScript", "HTML5", "CSS3"],
+    "secondary": ["SCSS", "Micro-frontends", "Design Systems", "Component Libraries"],
+    "tools": ["Cypress", "Jest", "React Testing Library", "Webpack", "Git", "Jenkins", "Grafana", "Okta", "D3.js", "Figma"],
+    "cloud": ["Azure", "AKS", "AWS", "Docker", "PCF"],
+    "backend": ["NestJS", "SSO", "Session Management", "UserInfo APIs"],
+    "ai": [
+      "Google Vertex AI",
+      "Prompt Engineering",
+      "Structured Evaluation",
+      "Ollama",
+      "LM Studio",
+      "Spec-Driven Development",
+      "AI Workflow Design"
+    ]
+  },
+  "focusAreas": [
+    "Frontend platform engineering",
+    "Full-stack product delivery",
+    "AI-enabled workflows with practical guardrails",
+    "Local-first and self-hosted systems"
+  ],
+  "strengths": [
+    "Owns product behavior end to end, from interaction design to backend workflows",
+    "Comfortable operating across frontend platforms, identity systems, and application architecture",
+    "Prefers clear scope, honest tradeoffs, and systems that stay understandable under change",
+    "Comfortable shaping AI into a product capability rather than a surface-level feature"
+  ],
+  "selectedWins": [
+    {
+      "title": "Authentication and session platform",
+      "summary": "Improved authentication success rate by 18% and user adoption by 17% through redesigned login, session, and WebView sharing flows across Safeway brands."
+    },
+    {
+      "title": "React platform migration",
+      "summary": "Helped lead migration from legacy AEM architecture to a React micro-frontend platform with shared frontend libraries and stronger platform consistency."
+    },
+    {
+      "title": "AI-enabled product work",
+      "summary": "Integrated Google Vertex AI, prompt engineering, and structured evaluation into real application workflows while continuing hands-on work with Ollama, LM Studio, and spec-driven development."
+    }
+  ],
+  "experience": [
+    {
+      "company": "Albertsons",
+      "title": "Sr. Software Engineer",
+      "startDate": "2018-03",
+      "endDate": "Present",
+      "highlights": [
+        "Increased authentication success rate by 18% by redesigning login and session flows across Safeway brands.",
+        "Improved user adoption by 17% through WebView session sharing across web and mobile.",
+        "Led migration from legacy AEM architecture to a React micro-frontend platform.",
+        "Integrated AI capabilities using Google Vertex AI to support application intelligence and automation workflows.",
+        "Applied prompt engineering and structured evaluation techniques to production-oriented AI integrations.",
+        "Delivered frontend platform components supporting authentication, session management, and enterprise user workflows.",
+        "Architected and shipped NestJS services for secure session management, SSO, userInfo, and logout orchestration.",
+        "Defined frontend architecture patterns, component standards, and performance best practices."
+      ]
+    },
+    {
+      "company": "Albertsons",
+      "title": "Software Engineer",
+      "highlights": [
+        "Enhanced web accessibility and ADA compliance.",
+        "Contributed to migration from Teamsite-LiveSite to AEM.",
+        "Led development of a permission-based user login system.",
+        "Redesigned a more secure and user-friendly password reset application."
+      ]
+    },
+    {
+      "company": "Pro-Tek Consulting",
+      "title": "Software Engineer",
+      "startDate": "2017-09",
+      "endDate": "2018-02",
+      "highlights": [
+        "Used React.js to design interactive cross-browser user interfaces.",
+        "Improved system performance by 10%.",
+        "Optimized web performance using Grunt and Gulp.",
+        "Implemented responsive designs with Bootstrap and Foundation."
+      ]
+    }
+  ],
+  "leadershipSignals": [
+    "Platform ownership in identity and personalization space",
+    "Cross-functional collaboration with product owners and UX",
+    "Mentoring engineers",
+    "Leading cross-team initiatives",
+    "Production release ownership"
+  ],
+  "targetDirection": [
+    "Staff or Lead roles",
+    "Platform architecture",
+    "AI-enabled systems"
+  ],
+  "education": [
+    {
+      "degree": "Master of Science",
+      "field": "Computer Science",
+      "institution": "Lamar University",
+      "graduationDate": "2017-05"
+    },
+    {
+      "degree": "Bachelor of Technology",
+      "field": "Computer Engineering",
+      "institution": "Sardar Vallabhbhai National Institute of Technology",
+      "graduationDate": "2014-05"
+    }
+  ],
+  "fit": {
+    "title": "Best fit",
+    "body": "I am most interested in Staff or Lead roles where frontend platform thinking, system design, product judgment, and AI-enabled workflows all matter. The strongest fit is work that values clarity, trust, and operational quality as core engineering concerns."
+  },
+  "documents": {
+    "pdfHref": "/resume/bhavya-dalwadi-resume.pdf"
+  },
+  "cta": {
+    "label": "Start a Conversation",
+    "href": "/contact"
+  }
+}

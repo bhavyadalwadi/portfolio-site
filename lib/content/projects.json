@@ -1,0 +1,99 @@
+[
+  {
+    "id": "project-1",
+    "slug": "localllm",
+    "title": "localLLM",
+    "shortSummary": "Self-hosted local AI node for Open WebUI and Ollama with model routing, operator workflows, and deployment guidance.",
+    "problem": "Local AI tooling often looks promising in demos but falls apart under operator friction, unclear setup, and weak deployment guidance.",
+    "contribution": "Owned product framing, implementation direction, operator workflow shape, and deployment-oriented structure.",
+    "outcomes": [
+      "Improved operator setup clarity and deployment confidence",
+      "Kept model workflow practical without platform sprawl"
+    ],
+    "impactMetrics": ["Clear deployment docs", "Practical model routing"],
+    "tags": ["AI Systems", "Full-Stack", "Local Infrastructure"],
+    "featured": true,
+    "status": "published",
+    "heroImage": {
+      "id": "img-1",
+      "src": "/images/localllm.jpg",
+      "alt": "localLLM operator workflow overview"
+    }
+  },
+  {
+    "id": "project-2",
+    "slug": "debt-crusher",
+    "title": "Debt Crusher",
+    "shortSummary": "Local-first debt payoff workspace with explainable recommendation logic and user-centered planning flows.",
+    "problem": "Debt tools often overwhelm users with spreadsheets, generic calculators, or opaque recommendations.",
+    "contribution": "Owned workflow design, recommendation framing, and overall application direction.",
+    "outcomes": [
+      "Delivered clearer recommendation reasoning for users",
+      "Improved trust through explicit user control and local-first behavior"
+    ],
+    "impactMetrics": ["Explainable planning", "Trust-focused UX"],
+    "tags": ["Finance", "Product Engineering", "Local-First"],
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "project-3",
+    "slug": "wealthpilot",
+    "title": "WealthPilot",
+    "shortSummary": "Portfolio analysis tool blending deterministic scoring with AI-generated PM-style memos.",
+    "problem": "Portfolio tools often split into raw dashboards or shallow AI commentary with little structure.",
+    "contribution": "Owned product framing and blend of deterministic analysis with AI-assisted memo generation.",
+    "outcomes": [
+      "Preserved analytical structure while adding AI-assisted insights",
+      "Improved portfolio workflow clarity for decision support"
+    ],
+    "tags": ["AI Integration", "Finance", "Full-Stack"],
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "project-4",
+    "slug": "price-pin",
+    "title": "Price Pin",
+    "shortSummary": "Map-first app for nearby product availability, price confidence, and community moderation.",
+    "problem": "Shoppers needed reliable local inventory and price confidence without fragmented app switching.",
+    "contribution": "Designed geo-aware product flows and community reporting mechanics.",
+    "outcomes": [
+      "Improved locality-first product discovery",
+      "Made confidence signals clearer for nearby buying decisions"
+    ],
+    "tags": ["Location Systems", "Product UX", "Full-Stack"],
+    "featured": true,
+    "status": "published"
+  },
+  {
+    "id": "project-5",
+    "slug": "kadi-tiri",
+    "title": "Kadi Tiri",
+    "shortSummary": "Multiplayer trick-taking card game with bidding, partner selection, trick play, and server-owned room state.",
+    "problem": "Real-time multiplayer game logic required deterministic room state and fair turn sequencing.",
+    "contribution": "Implemented room-state orchestration and interaction flow for bidding and trick play.",
+    "outcomes": [
+      "Delivered reliable multiplayer state handling",
+      "Improved interaction clarity during live game rounds"
+    ],
+    "tags": ["Realtime", "Game Systems", "Interactive"],
+    "featured": false,
+    "status": "published"
+  },
+  {
+    "id": "project-6",
+    "slug": "ha-home",
+    "title": "HA Home",
+    "shortSummary": "Home Assistant dashboard suite with custom Lovelace cards for room intelligence and energy visibility.",
+    "problem": "Off-the-shelf dashboards lacked practical visibility and control for household automation workflows.",
+    "contribution": "Built custom Lovelace cards and dashboard composition for room-level insights.",
+    "outcomes": [
+      "Improved home-automation observability",
+      "Made energy and room-state signals easier to interpret"
+    ],
+    "tags": ["Automation", "Dashboards", "Systems"],
+    "featured": false,
+    "status": "published"
+  }
+]
