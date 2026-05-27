@@ -1,8 +1,10 @@
 import type { SiteBlueprint } from "@/lib/content/schema";
+import { siteContent } from "@/lib/content/site-content";
 
 type AboutContent = SiteBlueprint["about"];
 
 export function AboutSection({ content }: { content: AboutContent }) {
+  const ui = siteContent.ui.aboutPage;
   const introParagraphs = (content.intro.body ?? "").split("\n\n");
   const workParagraphs = (content.howIWork.body ?? "").split("\n\n");
   const fitParagraphs = (content.whatILookFor.body ?? "").split("\n\n");
@@ -10,7 +12,7 @@ export function AboutSection({ content }: { content: AboutContent }) {
   return (
     <section className="page-section section-shell reveal-soft">
       <div className="section-heading measure">
-        <div className="eyebrow">About</div>
+        <div className="eyebrow">{ui.eyebrow}</div>
         <h1>{content.intro.title}</h1>
         {introParagraphs.map((paragraph) => (
           <p key={paragraph} className="route-lead">{paragraph}</p>

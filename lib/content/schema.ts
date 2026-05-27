@@ -67,6 +67,14 @@ export type HeroTerminalResponseSeed = {
   suggestions: string[];
 };
 
+export type HeroRoleMatcherEntry = {
+  id: string;
+  label: string;
+  summary: string;
+  proofPoints: string[];
+  links: ActionLink[];
+};
+
 export type ProjectCatalogEntry = {
   name: string;
   oneLiner: string;
@@ -106,6 +114,12 @@ export type SiteBlueprint = {
         helpText?: string;
         exampleCommands: string[];
         initialResponse: HeroTerminalResponseSeed;
+      };
+      matcher: {
+        label: string;
+        introLine: string;
+        roles: HeroRoleMatcherEntry[];
+        defaultRoleId: string;
       };
     };
     credibilityStrip: SectionBlock;
@@ -179,6 +193,155 @@ export type SiteBlueprint = {
   writing: {
     intro: SectionBlock;
     topics: SectionBlock;
+  };
+  ui: {
+    navigation: {
+      ariaLabel: string;
+      homeAriaLabel: string;
+      brandName: string;
+      brandPrimary: string;
+      brandSecondary: string;
+      links: ActionLink[];
+      writingLink: ActionLink;
+    };
+    homePage: {
+      flagshipEyebrow: string;
+      flagshipStandoutLabel: string;
+      flagshipStatus: string;
+      flagshipOwnershipLabel: string;
+      flagshipOutcomeLabel: string;
+      flagshipPrimaryLinkLabel: string;
+      flagshipSecondaryLinkLabel: string;
+      flagshipProofPointsLabel: string;
+      flagshipNote: string;
+      selectedWorkEyebrow: string;
+      featuredProjectLabel: string;
+      selectedWorkTagsAriaSuffix: string;
+      approachEyebrow: string;
+      caseStudiesEyebrow: string;
+      aboutEyebrow: string;
+      contactEyebrow: string;
+    };
+    aboutPage: {
+      eyebrow: string;
+    };
+    projectsPage: {
+      eyebrow: string;
+      featuredProjectLabel: string;
+      whyItMattersLabel: string;
+      archiveEyebrow: string;
+      stackAriaSuffix: string;
+    };
+    caseStudiesPage: {
+      eyebrow: string;
+      caseStudyLabel: string;
+      optionalCaseStudyLabel: string;
+      problemLabel: string;
+      roleLabel: string;
+      technicalApproachLabel: string;
+      challengesLabel: string;
+      outcomeLabel: string;
+    };
+    resumePage: {
+      eyebrow: string;
+      viewModeAriaLabel: string;
+      resumeTabLabel: string;
+      jsonTabLabel: string;
+      skillsLabel: string;
+      primarySkillsLabel: string;
+      aiSkillsLabel: string;
+      platformSkillsLabel: string;
+      targetDirectionLabel: string;
+      experienceLabel: string;
+      leadershipSignalsLabel: string;
+      educationLabel: string;
+      structuredResumeLabel: string;
+      structuredResumeNote: string;
+      copyJsonLabel: string;
+      copiedJsonLabel: string;
+      downloadJsonLabel: string;
+      machineReadableNote: string;
+      presentLabel: string;
+      downloadFileName: string;
+    };
+    contactPage: {
+      eyebrow: string;
+      form: {
+        nameLabel: string;
+        emailLabel: string;
+        subjectLabel: string;
+        messageLabel: string;
+        sendLabel: string;
+        sendingLabel: string;
+        successMessage: string;
+        serviceUnavailableMessage: string;
+        sourcePageDefault: string;
+      };
+      validation: {
+        name: string;
+        email: string;
+        message: string;
+        subject: string;
+      };
+    };
+    projectDetailPage: {
+      eyebrow: string;
+      problemLabel: string;
+      contributionLabel: string;
+      outcomesLabel: string;
+      notFoundTitle: string;
+      notFoundDescription: string;
+    };
+    projectCards: {
+      featuredCaseStudyLabel: string;
+      featuredProjectLabel: string;
+      projectNoteLabel: string;
+      projectTagsAriaLabel: string;
+      mediaUnavailableLabel: string;
+      outcomeLabel: string;
+      readCaseStudyLabel: string;
+      openDetailsLabel: string;
+    };
+    terminal: {
+      responseLabel: string;
+      inputAriaLabel: string;
+      pendingLabel: string;
+      fetchErrorMessage: string;
+      sourceLabels: {
+        rule: string;
+        ai: string;
+        fallback: string;
+      };
+      commands: {
+        showAiProjects: string;
+        showFinanceWork: string;
+        whatRoles: string;
+        whereBased: string;
+        howDoYouWork: string;
+        resume: string;
+        contact: string;
+        localLlmQuestion: string;
+        localLlmCaseStudy: string;
+        debtCrusherCaseStudy: string;
+        caseStudies: string;
+      };
+      links: {
+        openProjects: string;
+        openCaseStudies: string;
+        viewProjectList: string;
+        openResume: string;
+        openContact: string;
+        openAbout: string;
+      };
+      messages: {
+        empty: string;
+        help: string;
+        location: string;
+        skillsTemplate: string;
+        localFirst: string;
+        fallback: string;
+      };
+    };
   };
 };
 

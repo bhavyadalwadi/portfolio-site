@@ -1,30 +1,21 @@
 import Link from "next/link";
-
-const defaultLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/resume", label: "Resume" },
-  { href: "/contact", label: "Contact" },
-];
+import { siteContent } from "@/lib/content/site-content";
 
 export function MainNav({ includeWriting = false }: { includeWriting?: boolean }) {
-  const links = includeWriting ? [...defaultLinks, { href: "/writing", label: "Writing" }] : defaultLinks;
+  const nav = siteContent.ui.navigation;
+  const links = includeWriting ? [...nav.links, nav.writingLink] : nav.links;
 
   return (
-    <nav className="main-nav" aria-label="Primary">
+    <nav className="main-nav" aria-label={nav.ariaLabel}>
       <div className="container nav-row">
-        <Link href="/" className="brand-link" aria-label="Bhavya Dalwadi home">
-          <div className="brand">Bhavya Dalwadi</div>
-          <div className="meta-label brand-note">
-            <span>Staff-leaning</span>
-            <span className="brand-separator" aria-hidden="true">|</span>
-            <span>Full-Stack</span>
-            <span className="brand-separator" aria-hidden="true">|</span>
-            <span>Product</span>
-            <span className="brand-separator" aria-hidden="true">|</span>
-            <span>Engineering</span>
+        <Link href="/" className="brand-link" aria-label={nav.homeAriaLabel}>
+          <div className="brand-block">
+            <div className="brand">{nav.brandName}</div>
+            <div className="meta-label brand-note">
+              <span>{nav.brandPrimary}</span>
+              <span className="brand-separator" aria-hidden="true">•</span>
+              <span>{nav.brandSecondary}</span>
+            </div>
           </div>
         </Link>
         <div className="nav-links">

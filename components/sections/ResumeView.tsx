@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { siteContent } from "@/lib/content/site-content";
 import type { StructuredResume } from "@/lib/content/resume-data";
 import type { SiteBlueprint } from "@/lib/content/schema";
 
 type ResumeContent = SiteBlueprint["resume"];
 
 export function ResumeView({ resume, structuredResume }: { resume: ResumeContent; structuredResume: StructuredResume }) {
+  const ui = siteContent.ui.resumePage;
   const [mode, setMode] = useState<"resume" | "json">("resume");
   const [copied, setCopied] = useState(false);
 
@@ -46,14 +48,14 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = "bhavya-dalwadi-resume.json";
+    anchor.download = ui.downloadFileName;
     anchor.click();
     URL.revokeObjectURL(url);
   }
 
   return (
     <>
-      <div className="resume-mode-switch" role="tablist" aria-label="Resume view mode">
+      <div className="resume-mode-switch" role="tablist" aria-label={ui.viewModeAriaLabel}>
         <button
           type="button"
           role="tab"
@@ -61,7 +63,7 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
           className={`resume-mode-tab${mode === "resume" ? " is-active" : ""}`}
           onClick={() => updateMode("resume")}
         >
-          Resume
+          {ui.resumeTabLabel}
         </button>
         <button
           type="button"
@@ -70,7 +72,7 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
           className={`resume-mode-tab${mode === "json" ? " is-active" : ""}`}
           onClick={() => updateMode("json")}
         >
-          JSON
+          {ui.jsonTabLabel}
         </button>
       </div>
 
@@ -107,22 +109,22 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
 
           <div className="about-grid">
             <article className="about-panel interaction-soft">
-              <div className="meta-label">Skills</div>
+              <div className="meta-label">{ui.skillsLabel}</div>
               <div className="resume-skill-groups">
                 <div>
-                  <strong>Primary</strong>
+                  <strong>{ui.primarySkillsLabel}</strong>
                   <div className="tags">
                     {structuredResume.skills.primary.map((skill) => <span key={skill} className="tag">{skill}</span>)}
                   </div>
                 </div>
                 <div>
-                  <strong>AI</strong>
+                  <strong>{ui.aiSkillsLabel}</strong>
                   <div className="tags">
                     {structuredResume.skills.ai.map((skill) => <span key={skill} className="tag">{skill}</span>)}
                   </div>
                 </div>
                 <div>
-                  <strong>Platform</strong>
+                  <strong>{ui.platformSkillsLabel}</strong>
                   <div className="tags">
                     {[...structuredResume.skills.secondary, ...structuredResume.skills.cloud].map((skill) => (
                       <span key={skill} className="tag">{skill}</span>
@@ -133,7 +135,7 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
             </article>
 
             <article className="about-panel interaction-soft">
-              <div className="meta-label">Target Direction</div>
+              <div className="meta-label">{ui.targetDirectionLabel}</div>
               <div className="focus-stack">
                 {structuredResume.targetDirection.map((item) => (
                   <p key={item} className="body-copy">{item}</p>
@@ -145,7 +147,7 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
           </div>
 
           <article className="about-panel interaction-soft">
-            <div className="meta-label">Experience</div>
+              <div className="meta-label">{ui.experienceLabel}</div>
             <div className="resume-experience-timeline">
               {structuredResume.experience.map((role) => (
                 <article key={`${role.company}-${role.title}`} className="resume-timeline-item">
@@ -160,7 +162,7 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
                       </div>
                       {(role.startDate || role.endDate) ? (
                         <span className="resume-role-date">
-                          {[role.startDate, role.endDate ?? "Present"].filter(Boolean).join(" - ")}
+                          {[role.startDate, role.endDate ?? ui.presentLabel].filter(Boolean).join(" - ")}
                         </span>
                       ) : null}
                     </div>
@@ -177,7 +179,7 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
 
           <div className="about-grid">
             <article className="about-panel interaction-soft">
-              <div className="meta-label">Leadership Signals</div>
+              <div className="meta-label">{ui.leadershipSignalsLabel}</div>
               <ul>
                 {structuredResume.leadershipSignals.map((item) => (
                   <li key={item}>{item}</li>
@@ -186,7 +188,7 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
             </article>
 
             <article className="about-panel interaction-soft">
-              <div className="meta-label">Education</div>
+              <div className="meta-label">{ui.educationLabel}</div>
               <div className="focus-stack">
                 {structuredResume.education.map((entry) => (
                   <article key={`${entry.institution}-${entry.degree}`}>
@@ -205,22 +207,22 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
           </div>
 
           <p className="route-lead" style={{ marginTop: "0.85rem" }}>
-            The page is driven from a structured resume data model. If the PDF is unavailable, use Contact and I will share the latest copy directly.
+            {ui.machineReadableNote}
           </p>
         </div>
       ) : (
         <div className="about-panel interaction-soft resume-json-panel">
           <div className="resume-json-toolbar">
             <div>
-              <div className="meta-label">Structured Resume Data</div>
-              <p className="resume-json-note">Same resume content, exposed in a machine-friendly form for LLM and tooling workflows.</p>
+              <div className="meta-label">{ui.structuredResumeLabel}</div>
+              <p className="resume-json-note">{ui.structuredResumeNote}</p>
             </div>
             <div className="resume-json-actions">
               <button type="button" className="secondary resume-copy-btn" onClick={() => void copyJson()}>
-                {copied ? "Copied" : "Copy JSON"}
+                {copied ? ui.copiedJsonLabel : ui.copyJsonLabel}
               </button>
               <button type="button" className="secondary resume-copy-btn" onClick={downloadJson}>
-                Download JSON
+                {ui.downloadJsonLabel}
               </button>
             </div>
           </div>

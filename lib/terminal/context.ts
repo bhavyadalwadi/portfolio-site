@@ -1,6 +1,9 @@
 import { siteContent } from "@/lib/content/site-content";
+import { getStructuredResume } from "@/lib/content/resume-data";
 
 export function buildTerminalContext() {
+  const structuredResume = getStructuredResume();
+
   return {
     positioning: siteContent.positioning,
     about: {
@@ -22,6 +25,14 @@ export function buildTerminalContext() {
     resume: {
       intro: siteContent.resume.intro.body,
       highlights: siteContent.resume.snapshot.items ?? [],
+      summary: structuredResume.basics.summary,
+      headline: structuredResume.basics.headline,
+      experience: structuredResume.experience.map((role) => ({
+        company: role.company,
+        title: role.title,
+        startDate: role.startDate,
+        endDate: role.endDate,
+      })),
     },
     contact: siteContent.contact.intro.body,
   };

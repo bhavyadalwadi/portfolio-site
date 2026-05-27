@@ -1,12 +1,14 @@
 import { getCaseStudiesContent } from "@/lib/content/site-content-loader";
+import { siteContent } from "@/lib/content/site-content";
 
 export default function CaseStudiesPage() {
   const content = getCaseStudiesContent();
+  const ui = siteContent.ui.caseStudiesPage;
 
   return (
     <section className="page-section section-shell reveal-soft" aria-labelledby="case-studies-title">
       <div className="section-heading measure">
-        <div className="eyebrow">Case Studies</div>
+        <div className="eyebrow">{ui.eyebrow}</div>
         <h1 id="case-studies-title">{content.intro.title}</h1>
         <p className="route-lead">{content.intro.body}</p>
       </div>
@@ -14,13 +16,13 @@ export default function CaseStudiesPage() {
       <div className="detail-grid">
         {content.entries.map((entry) => (
           <article className="detail-card interaction-soft" key={entry.project}>
-            <div className="meta-label">{entry.optional ? "Optional Case Study" : "Case Study"}</div>
+            <div className="meta-label">{entry.optional ? ui.optionalCaseStudyLabel : ui.caseStudyLabel}</div>
             <h3>{entry.project}</h3>
-            <p><strong>Problem:</strong> {entry.problem}</p>
-            <p><strong>Role and ownership:</strong> {entry.role}</p>
-            <p><strong>Technical approach:</strong> {entry.technicalApproach}</p>
-            {entry.challenges ? <p><strong>Challenges:</strong> {entry.challenges}</p> : null}
-            <p><strong>Outcome:</strong> {entry.outcome}</p>
+            <p><strong>{ui.problemLabel}:</strong> {entry.problem}</p>
+            <p><strong>{ui.roleLabel}:</strong> {entry.role}</p>
+            <p><strong>{ui.technicalApproachLabel}:</strong> {entry.technicalApproach}</p>
+            {entry.challenges ? <p><strong>{ui.challengesLabel}:</strong> {entry.challenges}</p> : null}
+            <p><strong>{ui.outcomeLabel}:</strong> {entry.outcome}</p>
           </article>
         ))}
       </div>

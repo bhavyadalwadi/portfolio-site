@@ -1,14 +1,20 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export function ScrollEffects() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) return;
-
     const elements = Array.from(document.querySelectorAll<HTMLElement>(".reveal-soft"));
     if (elements.length === 0) return;
+
+    if (mediaQuery.matches) {
+      elements.forEach((element) => element.classList.add("is-visible"));
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,7 +33,7 @@ export function ScrollEffects() {
     elements.forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   return null;
 }

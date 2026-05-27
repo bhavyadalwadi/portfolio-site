@@ -10,30 +10,130 @@ export const siteContent: SiteBlueprint = {
   home: {
     hero: {
       eyebrow: "Staff-Leaning Full-Stack Engineer",
-      headline: "I build product-grade software for messy, real workflows and use AI only where it earns its place.",
+      headline: "Product-grade software for messy workflows. AI where it helps. Clear systems where it counts.",
       subheadline:
-        "Staff-leaning full-stack engineer shipping across interfaces, backend systems, and AI-enabled workflows with a bias toward clear scope, durable architecture, and actual usability.",
+        "I work across interface, backend, and workflow layers with a bias toward durable architecture, restrained scope, and software people can actually operate.",
       supportingLine:
-        "Based in San Jose, California. Strongest when product judgment, system design, and hands-on delivery all need to hold up at the same time.",
+        "San Jose, California. Best fit for staff-leaning product and platform work where product judgment, system design, and hands-on delivery all need to hold up.",
       primaryCta: { label: "View Flagship Work", href: "/projects/localllm" },
       secondaryCta: { label: "See Resume", href: "/resume" },
       terminal: {
         label: "portfolio.sh",
         introLine: "Ask a direct question. The terminal answers first, then points you to the right work.",
-        promptPlaceholder: "try: what have you built with local llms",
+        promptPlaceholder: "try: how many years of experience do you have",
         helpText: "Router first. AI only steps in when the site content needs synthesis.",
         exampleCommands: [
+          "how many years of experience do you have",
+          "what is your current role",
           "show AI projects",
-          "what have you built with local llms",
           "how do you work",
-          "show finance work",
-          "resume",
           "what roles are you looking for",
+          "show finance work",
+          "education",
+          "where are you based",
+          "resume",
         ],
         initialResponse: {
-          message: "I can summarize relevant work, answer from the portfolio content, and get you to the right page without making you hunt for it.",
-          suggestions: ["show AI projects", "how do you work", "resume"],
+          message: "Ask about experience, current role, projects, AI work, resume, or what kind of roles I am targeting.",
+          suggestions: [
+            "how many years of experience do you have",
+            "what is your current role",
+            "show AI projects",
+            "how do you work",
+            "what roles are you looking for",
+            "show finance work",
+            "education",
+            "where are you based",
+            "resume",
+          ],
         },
+      },
+      matcher: {
+        label: "Role Fit Matcher",
+        introLine: "Pick the lens that matches the role. I’ll surface the strongest proof fast.",
+        defaultRoleId: "staff-full-stack",
+        roles: [
+          {
+            id: "staff-full-stack",
+            label: "Staff Full-Stack",
+            summary:
+              "Strong fit for roles that need product judgment, system design, and hands-on delivery to work together. The throughline is turning ambiguous workflows into usable software with clear scope and durable architecture.",
+            proofPoints: [
+              "Owned product framing and operator workflow shape for localLLM, not just implementation details.",
+              "Ships across interface, backend, and deployment concerns instead of staying in one layer.",
+              "Prefers scoped, explainable systems that stay legible as they grow."
+            ],
+            links: [
+              { label: "View flagship work", href: "/projects/localllm" },
+              { label: "Read case studies", href: "/case-studies" },
+              { label: "See resume", href: "/resume" }
+            ]
+          },
+          {
+            id: "ai-product-engineer",
+            label: "AI Product Engineer",
+            summary:
+              "Best fit for teams using AI inside real products rather than as a headline feature. The work consistently emphasizes routing, output quality, operator usability, and practical system boundaries.",
+            proofPoints: [
+              "Built localLLM around model access, operator workflows, and deployment reality.",
+              "WealthPilot blends deterministic analysis with AI memo generation instead of relying on vague chat output.",
+              "Treats AI as one capability inside a product, with guardrails and workflow design doing the real work."
+            ],
+            links: [
+              { label: "Explore AI projects", href: "/projects" },
+              { label: "Read localLLM", href: "/projects/localllm" },
+              { label: "Open resume", href: "/resume" }
+            ]
+          },
+          {
+            id: "platform-systems",
+            label: "Platform / Systems",
+            summary:
+              "Strong match for platform-leaning roles where reliability, workflow clarity, and system behavior matter as much as code volume. The portfolio shows repeated attention to operator needs and practical infrastructure choices.",
+            proofPoints: [
+              "localLLM focused on deployment guidance, model routing, and operator confidence.",
+              "Built local and self-hosted workflows without turning them into sprawling internal platforms.",
+              "Comfortable shaping backend logic and system behavior around real operational constraints."
+            ],
+            links: [
+              { label: "See localLLM", href: "/projects/localllm" },
+              { label: "About how I work", href: "/about" },
+              { label: "Review resume", href: "/resume" }
+            ]
+          },
+          {
+            id: "product-minded-engineer",
+            label: "Product-Minded Engineer",
+            summary:
+              "Best fit for teams that need engineering judgment tied closely to user workflows and product decisions. The work consistently pushes toward clarity, trust, and software that feels understandable without extra explanation.",
+            proofPoints: [
+              "Debt Crusher centers explainability and explicit user control in a sensitive finance workflow.",
+              "Price Pin emphasizes confidence signals and nearby decision-making instead of feature sprawl.",
+              "Strong preference for reducing friction and surfacing the right decisions for the user."
+            ],
+            links: [
+              { label: "Browse projects", href: "/projects" },
+              { label: "Read case studies", href: "/case-studies" },
+              { label: "Contact Bhavya", href: "/contact" }
+            ]
+          },
+          {
+            id: "finance-decision-tools",
+            label: "Finance / Decision Tools",
+            summary:
+              "Useful fit for product teams building finance, analysis, or decision-support tools where trust and structure matter. The finance work here leans toward explainable logic, deliberate workflow design, and practical guidance over noise.",
+            proofPoints: [
+              "Debt Crusher turns debt planning into an explainable local-first workflow.",
+              "WealthPilot combines structured scoring with AI-assisted synthesis for investment analysis.",
+              "Focus stays on decision quality and user confidence, not just dashboards or automation."
+            ],
+            links: [
+              { label: "See all projects", href: "/projects" },
+              { label: "Open case studies", href: "/case-studies" },
+              { label: "See resume", href: "/resume" }
+            ]
+          }
+        ]
       },
     },
     credibilityStrip: {
@@ -107,17 +207,17 @@ export const siteContent: SiteBlueprint = {
     caseStudyPreview: {
       title: "Case Studies",
       intro:
-        "The interesting part is rarely just what got built. It is the problem framing, the tradeoffs, and the decisions that shaped the outcome.",
+        "I care less about feature tours and more about the decisions underneath them: what had to stay simple, what had to be durable, and what would actually hold up in use.",
       items: [
         {
           title: "localLLM",
           body:
-            "A local AI system shaped around deployment reality, operator usability, model access, and keeping the stack narrow enough to stay practical.",
+            "A local AI node shaped around deployment reality: model routing, operator ergonomics, and just enough infrastructure to stay useful without turning into platform sprawl.",
         },
         {
           title: "Debt Crusher",
           body:
-            "A finance tool built around explainability and user trust, where recommendation quality matters as much as the interface delivering it.",
+            "A decision tool for debt payoff planning where trust is part of the product, so the ranking logic, explanations, and user controls had to feel as solid as the UI.",
         },
       ],
       cta: { label: "Read Case Studies", href: "/case-studies" },
@@ -378,6 +478,162 @@ export const siteContent: SiteBlueprint = {
         "Product-minded full-stack engineering",
         "Engineering tradeoffs and scope control",
       ],
+    },
+  },
+  ui: {
+    navigation: {
+      ariaLabel: "Primary",
+      homeAriaLabel: "Bhavya Dalwadi home",
+      brandName: "Bhavya Dalwadi",
+      brandPrimary: "Staff Engineer",
+      brandSecondary: "Full-stack engineer",
+      links: [
+        { href: "/", label: "Home" },
+        { href: "/about", label: "About" },
+        { href: "/projects", label: "Projects" },
+        { href: "/case-studies", label: "Case Studies" },
+        { href: "/resume", label: "Resume" },
+        { href: "/contact", label: "Contact" },
+      ],
+      writingLink: { href: "/writing", label: "Writing" },
+    },
+    homePage: {
+      flagshipEyebrow: "Flagship Case Study",
+      flagshipStandoutLabel: "Why It Stands Out",
+      flagshipStatus: "Shipped thinking, not demo polish",
+      flagshipOwnershipLabel: "What I Owned",
+      flagshipOutcomeLabel: "Outcome",
+      flagshipPrimaryLinkLabel: "Read the full case study",
+      flagshipSecondaryLinkLabel: "Browse all projects",
+      flagshipProofPointsLabel: "Proof Points",
+      flagshipNote: "This project is the clearest example of how I shape AI into an operator-friendly product instead of a vague capability layer.",
+      selectedWorkEyebrow: "Selected Work",
+      featuredProjectLabel: "Featured Project",
+      selectedWorkTagsAriaSuffix: "tags",
+      approachEyebrow: "Approach",
+      caseStudiesEyebrow: "Case Studies",
+      aboutEyebrow: "About",
+      contactEyebrow: "Open to Roles",
+    },
+    aboutPage: {
+      eyebrow: "About",
+    },
+    projectsPage: {
+      eyebrow: "Projects",
+      featuredProjectLabel: "Featured Project",
+      whyItMattersLabel: "Why it matters",
+      archiveEyebrow: "Archive",
+      stackAriaSuffix: "stack",
+    },
+    caseStudiesPage: {
+      eyebrow: "Case Studies",
+      caseStudyLabel: "Case Study",
+      optionalCaseStudyLabel: "Optional Case Study",
+      problemLabel: "Problem",
+      roleLabel: "Role and ownership",
+      technicalApproachLabel: "Technical approach",
+      challengesLabel: "Challenges",
+      outcomeLabel: "Outcome",
+    },
+    resumePage: {
+      eyebrow: "Resume",
+      viewModeAriaLabel: "Resume view mode",
+      resumeTabLabel: "Resume",
+      jsonTabLabel: "JSON",
+      skillsLabel: "Skills",
+      primarySkillsLabel: "Primary",
+      aiSkillsLabel: "AI",
+      platformSkillsLabel: "Platform",
+      targetDirectionLabel: "Target Direction",
+      experienceLabel: "Experience",
+      leadershipSignalsLabel: "Leadership Signals",
+      educationLabel: "Education",
+      structuredResumeLabel: "Structured Resume Data",
+      structuredResumeNote: "Same resume content, exposed in a machine-friendly form for LLM and tooling workflows.",
+      copyJsonLabel: "Copy JSON",
+      copiedJsonLabel: "Copied",
+      downloadJsonLabel: "Download JSON",
+      machineReadableNote: "The page is driven from a structured resume data model. If the PDF is unavailable, use Contact and I will share the latest copy directly.",
+      presentLabel: "Present",
+      downloadFileName: "bhavya-dalwadi-resume.json",
+    },
+    contactPage: {
+      eyebrow: "Contact",
+      form: {
+        nameLabel: "Name",
+        emailLabel: "Email",
+        subjectLabel: "Subject",
+        messageLabel: "Message",
+        sendLabel: "Send message",
+        sendingLabel: "Sending...",
+        successMessage: "Thanks. Your message has been received.",
+        serviceUnavailableMessage: "Submission service unavailable. Please try again shortly.",
+        sourcePageDefault: "/contact",
+      },
+      validation: {
+        name: "Name must be between 1 and 80 characters.",
+        email: "Email must be valid.",
+        message: "Message must be between 20 and 2000 characters.",
+        subject: "Subject must be 120 characters or fewer.",
+      },
+    },
+    projectDetailPage: {
+      eyebrow: "Case Study Detail",
+      problemLabel: "Problem",
+      contributionLabel: "Contribution",
+      outcomesLabel: "Outcomes",
+      notFoundTitle: "Project not found",
+      notFoundDescription: "This case study is unavailable or has been unpublished.",
+    },
+    projectCards: {
+      featuredCaseStudyLabel: "Featured Case Study",
+      featuredProjectLabel: "Featured Project",
+      projectNoteLabel: "Project Note",
+      projectTagsAriaLabel: "Project tags",
+      mediaUnavailableLabel: "Media preview unavailable",
+      outcomeLabel: "Outcome",
+      readCaseStudyLabel: "Read case study",
+      openDetailsLabel: "Open details",
+    },
+    terminal: {
+      responseLabel: "response",
+      inputAriaLabel: "Ask the portfolio terminal",
+      pendingLabel: "Resolving…",
+      fetchErrorMessage: "The terminal could not resolve that right now. You can still ask about projects, resume, about, contact, or case studies.",
+      sourceLabels: {
+        rule: "router",
+        ai: "ai fallback",
+        fallback: "fallback",
+      },
+      commands: {
+        showAiProjects: "show AI projects",
+        showFinanceWork: "show finance work",
+        whatRoles: "what roles are you looking for",
+        whereBased: "where are you based",
+        howDoYouWork: "how do you work",
+        resume: "resume",
+        contact: "contact",
+        localLlmQuestion: "what have you built with local llms",
+        localLlmCaseStudy: "localLLM case study",
+        debtCrusherCaseStudy: "Debt Crusher case study",
+        caseStudies: "case studies",
+      },
+      links: {
+        openProjects: "Open Projects",
+        openCaseStudies: "Open Case Studies",
+        viewProjectList: "View Project List",
+        openResume: "Open Resume",
+        openContact: "Open Contact",
+        openAbout: "Open About",
+      },
+      messages: {
+        empty: "Ask about projects, AI work, finance work, case studies, resume, contact, location, or how I work.",
+        help: "You can ask about projects, AI work, finance work, case studies, resume, contact, location, or how I work.",
+        location: "I am based in San Jose, California, and I build across full-stack product systems, AI workflows, and practical software.",
+        skillsTemplate: "My technical focus spans {focus}. The throughline is practical product engineering with clear workflow and system ownership.",
+        localFirst: "I am especially drawn to local-first and self-hosted tools that preserve user control without sacrificing usability.",
+        fallback: "I can help with projects, AI work, finance work, resume, case studies, contact, location, and how I work, all from the portfolio itself.",
+      },
     },
   },
 };

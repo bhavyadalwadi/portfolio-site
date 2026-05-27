@@ -1,13 +1,15 @@
 import { ContactForm } from "@/components/sections/ContactForm";
 import { getContactContent } from "@/lib/content/site-content-loader";
+import { siteContent } from "@/lib/content/site-content";
 
 export default function ContactPage() {
   const content = getContactContent();
+  const ui = siteContent.ui.contactPage;
 
   return (
     <section className="page-section section-shell reveal-soft">
       <div className="section-heading measure">
-        <div className="eyebrow">Contact</div>
+        <div className="eyebrow">{ui.eyebrow}</div>
         <h1>{content.intro.title}</h1>
         <p className="route-lead">{content.intro.body}</p>
       </div>

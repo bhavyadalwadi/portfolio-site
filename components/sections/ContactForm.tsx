@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { submitContact } from "@/lib/contact/submitContact";
+import { siteContent } from "@/lib/content/site-content";
 import { validateContactInput, type ContactInput } from "@/lib/validation/contact";
 
 export function ContactForm() {
-  const [form, setForm] = useState<ContactInput>({ name: "", email: "", subject: "", message: "", sourcePage: "/contact" });
+  const ui = siteContent.ui.contactPage.form;
+  const [form, setForm] = useState<ContactInput>({ name: "", email: "", subject: "", message: "", sourcePage: ui.sourcePageDefault });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,8 +28,8 @@ export function ContactForm() {
       const result = await submitContact(form);
 
       if (result.status === "received") {
-        setStatus("Thanks. Your message has been received.");
-        setForm({ name: "", email: "", subject: "", message: "", sourcePage: "/contact" });
+        setStatus(ui.successMessage);
+        setForm({ name: "", email: "", subject: "", message: "", sourcePage: ui.sourcePageDefault });
         return;
       }
 
@@ -39,7 +41,7 @@ export function ContactForm() {
 
       setStatus(result.message);
     } catch {
-      setStatus("Submission service unavailable. Please try again shortly.");
+      setStatus(ui.serviceUnavailableMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -48,7 +50,7 @@ export function ContactForm() {
   return (
     <form className="contact-form" onSubmit={onSubmit} noValidate>
       <label>
-        <span className="meta-label">Name</span>
+        <span className="meta-label">{ui.nameLabel}</span>
         <input
           name="name"
           value={form.name}
@@ -57,7 +59,7 @@ export function ContactForm() {
         {errors.name && <span className="error">{errors.name}</span>}
       </label>
       <label>
-        <span className="meta-label">Email</span>
+        <span className="meta-label">{ui.emailLabel}</span>
         <input
           name="email"
           type="email"
@@ -67,7 +69,7 @@ export function ContactForm() {
         {errors.email && <span className="error">{errors.email}</span>}
       </label>
       <label>
-        <span className="meta-label">Subject</span>
+        <span className="meta-label">{ui.subjectLabel}</span>
         <input
           name="subject"
           value={form.subject ?? ""}
@@ -76,7 +78,7 @@ export function ContactForm() {
         {errors.subject && <span className="error">{errors.subject}</span>}
       </label>
       <label>
-        <span className="meta-label">Message</span>
+        <span className="meta-label">{ui.messageLabel}</span>
         <textarea
           name="message"
           rows={6}
@@ -89,13 +91,13 @@ export function ContactForm() {
         {isSubmitting ? (
           <>
             <span className="spinner" aria-hidden="true" />
-            Sending...
+            {ui.sendingLabel}
           </>
         ) : (
-          "Send message"
+          ui.sendLabel
         )}
       </button>
-      {status ? <span className={status.includes("Thanks") ? "success" : "error"}>{status}</span> : null}
+      {status ? <span className={status.includes(ui.successMessage) ? "success" : "error"}>{status}</span> : null}
     </form>
   );
 }

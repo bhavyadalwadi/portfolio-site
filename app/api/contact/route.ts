@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 import { sendDiscordWebhook } from "@/lib/contact/sendDiscordWebhook";
+import { siteContent } from "@/lib/content/site-content";
 import { validateContactInput, type ContactInput } from "@/lib/validation/contact";
 
 export async function POST(request: Request) {
@@ -13,7 +14,7 @@ export async function POST(request: Request) {
 
   if (payload.message.toLowerCase().includes("outage")) {
     return NextResponse.json(
-      { status: "failed", message: "Submission service unavailable. Please try again shortly." },
+      { status: "failed", message: siteContent.ui.contactPage.form.serviceUnavailableMessage },
       { status: 503 },
     );
   }
@@ -22,7 +23,7 @@ export async function POST(request: Request) {
     await sendDiscordWebhook(payload);
   } catch {
     return NextResponse.json(
-      { status: "failed", message: "Submission service unavailable. Please try again shortly." },
+      { status: "failed", message: siteContent.ui.contactPage.form.serviceUnavailableMessage },
       { status: 503 },
     );
   }
