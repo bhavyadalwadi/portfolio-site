@@ -66,21 +66,22 @@ export default function HomePage() {
           </div>
         </section>
       ) : null}
-      <section className="page-section page-section-home section-shell" aria-labelledby="featured-title">
-        <div className="section-heading measure">
+      <section className="page-section page-section-home section-shell selected-work-section" aria-labelledby="featured-title">
+        <div className="section-heading measure selected-work-head">
           <div className="eyebrow">{ui.selectedWorkEyebrow}</div>
           <h2 id="featured-title">{content.selectedWork.title}</h2>
           <p>{content.selectedWork.intro}</p>
         </div>
-        <div className="grid projects">
-          {content.selectedWork.projects.map((project) => (
-            <article className="card interaction-soft" key={project.name}>
-              <div className="card-head">
+        <div className="selected-work-list">
+          {content.selectedWork.projects.map((project, index) => (
+            <article className="selected-work-item" key={project.name}>
+              <div className="selected-work-index">{String(index + 1).padStart(2, "0")}</div>
+              <div className="selected-work-body">
                 <div className="meta-label">{ui.featuredProjectLabel}</div>
                 <h3>{project.name}</h3>
                 <p>{project.summary}</p>
               </div>
-              <div className="tags" aria-label={`${project.name} ${ui.selectedWorkTagsAriaSuffix}`}>
+              <div className="tags selected-work-tags" aria-label={`${project.name} ${ui.selectedWorkTagsAriaSuffix}`}>
                 {project.tags.map((tag) => (
                   <span key={tag} className="tag">{tag}</span>
                 ))}
