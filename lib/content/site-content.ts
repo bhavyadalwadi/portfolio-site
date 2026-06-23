@@ -14,7 +14,7 @@ export const siteContent: SiteBlueprint = {
       subheadline:
         "I work across interface, backend, and workflow layers with a bias toward durable architecture, restrained scope, and software people can actually operate.",
       supportingLine:
-        "San Jose, California. Best fit for staff-leaning product and platform work where product judgment, system design, and hands-on delivery all need to hold up.",
+        "San Jose, CA. Best fit for Senior and Staff-level product and platform roles where system design, full-stack delivery, and engineering judgment all matter.",
       primaryCta: { label: "View Flagship Work", href: "/projects/localllm" },
       secondaryCta: { label: "See Resume", href: "/resume" },
       terminal: {
@@ -65,7 +65,7 @@ export const siteContent: SiteBlueprint = {
             ],
             links: [
               { label: "View flagship work", href: "/projects/localllm" },
-              { label: "Read case studies", href: "/case-studies" },
+              { label: "View all projects", href: "/#projects" },
               { label: "See resume", href: "/resume" }
             ]
           },
@@ -80,7 +80,7 @@ export const siteContent: SiteBlueprint = {
               "Treats AI as one capability inside a product, with guardrails and workflow design doing the real work."
             ],
             links: [
-              { label: "Explore AI projects", href: "/projects" },
+              { label: "Explore AI projects", href: "/#projects" },
               { label: "Read localLLM", href: "/projects/localllm" },
               { label: "Open resume", href: "/resume" }
             ]
@@ -97,7 +97,7 @@ export const siteContent: SiteBlueprint = {
             ],
             links: [
               { label: "See localLLM", href: "/projects/localllm" },
-              { label: "About how I work", href: "/about" },
+              { label: "About how I work", href: "/resume" },
               { label: "Review resume", href: "/resume" }
             ]
           },
@@ -112,9 +112,9 @@ export const siteContent: SiteBlueprint = {
               "Strong preference for reducing friction and surfacing the right decisions for the user."
             ],
             links: [
-              { label: "Browse projects", href: "/projects" },
-              { label: "Read case studies", href: "/case-studies" },
-              { label: "Contact Bhavya", href: "/contact" }
+              { label: "Browse projects", href: "/#projects" },
+              { label: "View projects", href: "/#projects" },
+              { label: "Contact Bhavya", href: "/#contact" }
             ]
           },
           {
@@ -128,8 +128,8 @@ export const siteContent: SiteBlueprint = {
               "Focus stays on decision quality and user confidence, not just dashboards or automation."
             ],
             links: [
-              { label: "See all projects", href: "/projects" },
-              { label: "Open case studies", href: "/case-studies" },
+              { label: "See all projects", href: "/#projects" },
+              { label: "View projects", href: "/#projects" },
               { label: "See resume", href: "/resume" }
             ]
           }
@@ -151,12 +151,6 @@ export const siteContent: SiteBlueprint = {
         "A small set of projects that show product judgment, technical range, and how I make ambiguous software feel concrete and usable.",
       projects: [
         {
-          name: "localLLM",
-          summary:
-            "A self-hosted local AI node for Open WebUI and Ollama, built around operator docs, model routing, and deployment workflows.",
-          tags: ["AI Systems", "Full-Stack", "Local Infrastructure"],
-        },
-        {
           name: "Debt Crusher",
           summary:
             "A local-first debt payoff workspace with explainable recommendation logic, cash planning, and decision support for real financial tradeoffs.",
@@ -175,7 +169,7 @@ export const siteContent: SiteBlueprint = {
           tags: ["Location Systems", "Product UX", "Full-Stack"],
         },
       ],
-      cta: { label: "See All Projects", href: "/projects" },
+      cta: { label: "See All Projects", href: "/#projects" },
     },
     strengths: {
       title: "How I Work",
@@ -226,13 +220,13 @@ export const siteContent: SiteBlueprint = {
       title: "About",
       copy:
         "I like building software that feels useful, understandable, and grounded in how people actually work. I am especially drawn to products where engineering judgment matters as much as implementation speed.",
-      cta: { label: "Read More", href: "/about" },
+      cta: { label: "Read More", href: "/resume" },
     },
     contactCta: {
       title: "Open to product and platform work with real depth",
       copy:
         "I am interested in Senior and Staff-level full-stack roles where product ownership, system design, and pragmatic AI all matter in the same conversation.",
-      cta: { label: "Start a Conversation", href: "/contact" },
+      cta: { label: "Start a Conversation", href: "/#contact" },
     },
   },
   about: {
@@ -278,9 +272,13 @@ export const siteContent: SiteBlueprint = {
         "I am most interested in roles where full-stack ownership, product judgment, and system design all matter. The best fit problems usually involve ambiguous workflows, real user needs, and enough room to make thoughtful technical tradeoffs instead of just shipping tickets.\n\nI am especially drawn to teams building product-grade tools, decision-support applications, AI-assisted workflows, and systems where reliability and clarity matter as much as raw velocity.",
     },
     personalNote: {
-      title: "Beyond the Resume",
-      body:
-        "Outside the usual portfolio framing, I am consistently drawn to local AI, home systems, finance workflows, and interactive tools. I like software that solves real problems and respects how people actually operate day to day.",
+      title: "Outside Work",
+      items: [
+        "Local AI and self-hosted model workflows",
+        "Home automation and operator-friendly tooling",
+        "Finance and decision-support products",
+        "Interactive and game systems",
+      ],
     },
   },
   projects: {
@@ -297,7 +295,6 @@ export const siteContent: SiteBlueprint = {
         whyItMatters: "Shows how I turn AI capability into a usable system instead of a thin integration demo.",
         links: [
           { label: "GitHub", href: "https://github.com/bhavyadalwadi" },
-          { label: "Case Study", href: "/case-studies" },
         ],
       },
       {
@@ -307,7 +304,6 @@ export const siteContent: SiteBlueprint = {
         whyItMatters: "Shows product judgment, trust-centered UX, and decision-support thinking in a high-consequence domain.",
         links: [
           { label: "GitHub", href: "https://github.com/bhavyadalwadi" },
-          { label: "Case Study", href: "/case-studies" },
         ],
       },
       {
@@ -427,7 +423,7 @@ export const siteContent: SiteBlueprint = {
         "I work best on products where engineering ownership includes system design, workflow clarity, and practical delivery. The strongest fit is where product thinking and application engineering need to move together.",
     },
     primaryCta: { label: "Download PDF Resume", href: "/resume/bhavya-dalwadi-resume.pdf" },
-    secondaryCta: { label: "Start a Conversation", href: "/contact" },
+    secondaryCta: { label: "Start a Conversation", href: "/#contact" },
   },
   contact: {
     intro: {
@@ -443,18 +439,6 @@ export const siteContent: SiteBlueprint = {
           value: "Use the contact form",
           href: "#contact-form",
           note: "Best for role conversations and direct outreach.",
-        },
-        {
-          label: "Resume",
-          value: "View the structured summary or download the PDF",
-          href: "/resume",
-          note: "Best for role fit, experience framing, and background.",
-        },
-        {
-          label: "Projects",
-          value: "Review implementation work and product thinking",
-          href: "/projects",
-          note: "Best for seeing how I actually build and scope software.",
         },
         {
           label: "LinkedIn",
@@ -494,12 +478,7 @@ export const siteContent: SiteBlueprint = {
       brandPrimary: "Senior Engineer",
       brandSecondary: "San Jose, CA",
       links: [
-        { href: "/", label: "Home" },
-        { href: "/about", label: "About" },
-        { href: "/projects", label: "Projects" },
-        { href: "/case-studies", label: "Case Studies" },
         { href: "/resume", label: "Resume" },
-        { href: "/contact", label: "Contact" },
       ],
       writingLink: { href: "/writing", label: "Writing" },
     },
@@ -574,7 +553,7 @@ export const siteContent: SiteBlueprint = {
         sendingLabel: "Sending...",
         successMessage: "Thanks. Your message has been received.",
         serviceUnavailableMessage: "Submission service unavailable. Please try again shortly.",
-        sourcePageDefault: "/contact",
+        sourcePageDefault: "/",
       },
       validation: {
         name: "Name must be between 1 and 80 characters.",

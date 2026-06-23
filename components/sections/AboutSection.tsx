@@ -48,9 +48,15 @@ export function AboutSection({ content }: { content: AboutContent }) {
         </div>
         <div className="about-panel interaction-soft">
           <div className="meta-label">{content.personalNote.title}</div>
-          <p className="body-copy">
-            {content.personalNote.body}
-          </p>
+          {content.personalNote.items?.length ? (
+            <ul>
+              {content.personalNote.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="body-copy">{content.personalNote.body}</p>
+          )}
         </div>
       </div>
     </section>

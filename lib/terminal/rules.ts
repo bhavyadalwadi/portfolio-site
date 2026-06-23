@@ -86,8 +86,8 @@ function projectResponse(projectName: string, suggestions: string[]): RuleMatch 
   return withMeta(
     message,
     navLinks(
-      { href: "/projects", label: terminalUi.links.openProjects },
-      { href: caseStudy ? "/case-studies" : "/projects", label: caseStudy ? terminalUi.links.openCaseStudies : terminalUi.links.viewProjectList },
+      { href: "/#projects", label: terminalUi.links.openProjects },
+      { href: "/#projects", label: terminalUi.links.viewProjectList },
     ),
     suggestions,
   );
@@ -118,7 +118,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
   if (hasAny(query, ["years of experience", "how many years", "how much experience", "experience do you have"])) {
     return withMeta(
       getExperienceResponse(),
-      navLinks({ href: "/resume", label: terminalUi.links.openResume }, { href: "/contact", label: terminalUi.links.openContact }),
+      navLinks({ href: "/resume", label: terminalUi.links.openResume }, { href: "/#contact", label: terminalUi.links.openContact }),
       [terminalUi.commands.whatRoles, terminalUi.commands.showAiProjects, terminalUi.commands.howDoYouWork],
     );
   }
@@ -126,7 +126,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
   if (hasAny(query, ["current role", "what is your current role", "where do you work", "current job", "current position"])) {
     return withMeta(
       getCurrentRoleResponse(),
-      navLinks({ href: "/resume", label: terminalUi.links.openResume }, { href: "/about", label: terminalUi.links.openAbout }),
+      navLinks({ href: "/resume", label: terminalUi.links.openResume }, { href: "/resume", label: terminalUi.links.openResume }),
       [terminalUi.commands.whatRoles, terminalUi.commands.howDoYouWork, terminalUi.commands.resume],
     );
   }
@@ -142,7 +142,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
   if (hasAny(query, ["contact", "reach", "email", "hire", "talk"])) {
     return withMeta(
       siteContent.contact.intro.body ?? "",
-      navLinks({ href: "/contact", label: terminalUi.links.openContact }),
+      navLinks({ href: "/#contact", label: terminalUi.links.openContact }),
       [terminalUi.commands.resume, terminalUi.commands.howDoYouWork, terminalUi.commands.showAiProjects],
     );
   }
@@ -150,7 +150,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
   if (hasAny(query, ["about", "who are you", "background", "introduce yourself"])) {
     return withMeta(
       siteContent.about.intro.body ?? "",
-      navLinks({ href: "/about", label: terminalUi.links.openAbout }),
+      navLinks({ href: "/resume", label: terminalUi.links.openResume }),
       [terminalUi.commands.howDoYouWork, terminalUi.commands.showAiProjects, terminalUi.commands.whatRoles],
     );
   }
@@ -160,14 +160,14 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
     if (explicitCaseStudy) {
       return withMeta(
         `${explicitCaseStudy.problem} ${explicitCaseStudy.technicalApproach} ${explicitCaseStudy.outcome}`,
-        navLinks({ href: "/case-studies", label: terminalUi.links.openCaseStudies }),
+        navLinks({ href: "/#projects", label: terminalUi.links.openProjects }),
         [terminalUi.commands.localLlmCaseStudy, terminalUi.commands.debtCrusherCaseStudy, terminalUi.commands.showAiProjects],
       );
     }
 
     return withMeta(
       siteContent.caseStudies.intro.body ?? "",
-      navLinks({ href: "/case-studies", label: terminalUi.links.openCaseStudies }),
+      navLinks({ href: "/#projects", label: terminalUi.links.openProjects }),
       [terminalUi.commands.localLlmCaseStudy, terminalUi.commands.debtCrusherCaseStudy, terminalUi.commands.showAiProjects],
     );
   }
@@ -175,7 +175,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
   if (hasAny(query, ["how do you work", "work style", "how you work", "approach", "how do you build"])) {
     return withMeta(
       siteContent.about.howIWork.body ?? "",
-      navLinks({ href: "/about", label: terminalUi.links.openAbout }),
+      navLinks({ href: "/resume", label: terminalUi.links.openResume }),
       [terminalUi.commands.showAiProjects, terminalUi.commands.showFinanceWork, terminalUi.commands.resume],
     );
   }
@@ -183,7 +183,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
   if (hasAny(query, ["where are you based", "location", "where are you located", "san jose"])) {
     return withMeta(
       terminalUi.messages.location,
-      navLinks({ href: "/about", label: terminalUi.links.openAbout }, { href: "/contact", label: terminalUi.links.openContact }),
+      navLinks({ href: "/resume", label: terminalUi.links.openResume }, { href: "/#contact", label: terminalUi.links.openContact }),
       [terminalUi.commands.whatRoles, terminalUi.commands.resume, terminalUi.commands.showAiProjects],
     );
   }
@@ -191,7 +191,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
   if (hasAny(query, ["what roles are you looking for", "looking for", "what kind of role", "job search", "open to"])) {
     return withMeta(
       siteContent.about.whatILookFor.body ?? siteContent.contact.intro.body ?? "",
-      navLinks({ href: "/about", label: terminalUi.links.openAbout }, { href: "/contact", label: terminalUi.links.openContact }),
+      navLinks({ href: "/resume", label: terminalUi.links.openResume }, { href: "/#contact", label: terminalUi.links.openContact }),
       [terminalUi.commands.resume, terminalUi.commands.howDoYouWork, terminalUi.commands.showAiProjects],
     );
   }
@@ -200,7 +200,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
     const focus = siteContent.about.technicalFocus.areas.map((area) => area.title).join(", ");
     return withMeta(
       terminalUi.messages.skillsTemplate.replace("{focus}", focus),
-      navLinks({ href: "/about", label: terminalUi.links.openAbout }, { href: "/projects", label: terminalUi.links.openProjects }),
+      navLinks({ href: "/resume", label: terminalUi.links.openResume }, { href: "/#projects", label: terminalUi.links.openProjects }),
       [terminalUi.commands.howDoYouWork, terminalUi.commands.showAiProjects, terminalUi.commands.showFinanceWork],
     );
   }
@@ -208,7 +208,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
   if (hasAny(query, ["local first", "self hosted", "home automation"])) {
     return withMeta(
       terminalUi.messages.localFirst,
-      navLinks({ href: "/about", label: terminalUi.links.openAbout }, { href: "/projects", label: terminalUi.links.openProjects }),
+      navLinks({ href: "/resume", label: terminalUi.links.openResume }, { href: "/#projects", label: terminalUi.links.openProjects }),
       [terminalUi.commands.localLlmQuestion, terminalUi.commands.showAiProjects, terminalUi.commands.howDoYouWork],
     );
   }
@@ -223,7 +223,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
       const matches = projectMatchSummary(["localLLM", "WealthPilot"]);
       return withMeta(
         `AI-related work includes ${matches.map((project) => project.name).join(" and ")}. ${matches.map((project) => project.oneLiner).join(" ")}`,
-        navLinks({ href: "/projects", label: terminalUi.links.openProjects }, { href: "/case-studies", label: terminalUi.links.openCaseStudies }),
+        navLinks({ href: "/#projects", label: terminalUi.links.openProjects }),
         [terminalUi.commands.localLlmQuestion, terminalUi.commands.showFinanceWork, terminalUi.commands.resume],
       );
     }
@@ -232,14 +232,14 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
       const matches = projectMatchSummary(["Debt Crusher", "WealthPilot"]);
       return withMeta(
         `Finance-oriented work includes ${matches.map((project) => project.name).join(" and ")}. ${matches.map((project) => project.oneLiner).join(" ")}`,
-        navLinks({ href: "/projects", label: terminalUi.links.openProjects }, { href: "/case-studies", label: terminalUi.links.openCaseStudies }),
+        navLinks({ href: "/#projects", label: terminalUi.links.openProjects }),
         [terminalUi.commands.showAiProjects, terminalUi.commands.howDoYouWork, terminalUi.commands.contact],
       );
     }
 
     return withMeta(
       siteContent.projects.intro.body ?? "",
-      navLinks({ href: "/projects", label: terminalUi.links.openProjects }),
+      navLinks({ href: "/#projects", label: terminalUi.links.openProjects }),
       [terminalUi.commands.showAiProjects, terminalUi.commands.showFinanceWork, terminalUi.commands.caseStudies],
     );
   }
@@ -248,7 +248,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
     const localLlmCaseStudy = caseStudyDetails.get("localllm");
     return withMeta(
       `AI-related work includes localLLM and WealthPilot. ${localLlmCaseStudy?.technicalApproach ?? ""}`.trim(),
-      navLinks({ href: "/projects", label: terminalUi.links.openProjects }, { href: "/case-studies", label: terminalUi.links.openCaseStudies }),
+      navLinks({ href: "/#projects", label: terminalUi.links.openProjects }),
       [terminalUi.commands.localLlmQuestion, terminalUi.commands.showFinanceWork, terminalUi.commands.resume],
     );
   }
@@ -257,7 +257,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
     const matches = projectMatchSummary(["Debt Crusher", "WealthPilot"]);
     return withMeta(
       `Finance-oriented work includes ${matches.map((project) => project.name).join(" and ")}. ${matches.map((project) => project.whyItMatters).join(" ")}`,
-      navLinks({ href: "/projects", label: terminalUi.links.openProjects }, { href: "/case-studies", label: terminalUi.links.openCaseStudies }),
+      navLinks({ href: "/#projects", label: terminalUi.links.openProjects }),
       [terminalUi.commands.showAiProjects, terminalUi.commands.howDoYouWork, terminalUi.commands.contact],
     );
   }
@@ -265,7 +265,7 @@ export function resolveRuleBasedQuery(rawQuery: string): RuleMatch | null {
   if (hasAny(query, ["full stack", "frontend", "backend", "system design", "product engineer"])) {
     return withMeta(
       siteContent.about.technicalFocus.intro ?? "",
-      navLinks({ href: "/about", label: terminalUi.links.openAbout }, { href: "/projects", label: terminalUi.links.openProjects }),
+      navLinks({ href: "/resume", label: terminalUi.links.openResume }, { href: "/#projects", label: terminalUi.links.openProjects }),
       [terminalUi.commands.howDoYouWork, terminalUi.commands.showAiProjects, terminalUi.commands.resume],
       0.9,
     );
