@@ -2,14 +2,14 @@ import type { SiteBlueprint } from "@/lib/content/schema";
 
 export const siteContent: SiteBlueprint = {
   positioning: {
-    primary: "Staff Full-Stack Engineer",
+    primary: "Senior Full-Stack Engineer",
     secondary: "AI-capable product engineer",
     tone: "calm, credible, modern, direct",
     audience: ["recruiters", "hiring managers", "senior engineers", "engineering leaders"],
   },
   home: {
     hero: {
-      eyebrow: "Staff-Leaning Full-Stack Engineer",
+      eyebrow: "Senior Full-Stack Engineer",
       headline: "Product-grade software for messy workflows. AI where it helps. Clear systems where it counts.",
       subheadline:
         "I work across interface, backend, and workflow layers with a bias toward durable architecture, restrained scope, and software people can actually operate.",
@@ -55,7 +55,7 @@ export const siteContent: SiteBlueprint = {
         roles: [
           {
             id: "staff-full-stack",
-            label: "Staff Full-Stack",
+            label: "Senior Full-Stack",
             summary:
               "Strong fit for roles that need product judgment, system design, and hands-on delivery to work together. The throughline is turning ambiguous workflows into usable software with clear scope and durable architecture.",
             proofPoints: [
@@ -231,7 +231,7 @@ export const siteContent: SiteBlueprint = {
     contactCta: {
       title: "Open to product and platform work with real depth",
       copy:
-        "I am interested in Staff-leaning full-stack roles where product ownership, system design, and pragmatic AI all matter in the same conversation.",
+        "I am interested in Senior and Staff-level full-stack roles where product ownership, system design, and pragmatic AI all matter in the same conversation.",
       cta: { label: "Start a Conversation", href: "/contact" },
     },
   },
@@ -296,7 +296,7 @@ export const siteContent: SiteBlueprint = {
           "Self-hosted AI node for Open WebUI and Ollama, shaped around operator usability, model routing, and deployment reality.",
         whyItMatters: "Shows how I turn AI capability into a usable system instead of a thin integration demo.",
         links: [
-          { label: "Repo", href: "#" },
+          { label: "GitHub", href: "https://github.com/bhavyadalwadi" },
           { label: "Case Study", href: "/case-studies" },
         ],
       },
@@ -306,7 +306,7 @@ export const siteContent: SiteBlueprint = {
           "Local-first debt planning workspace with explainable recommendations and user-controlled decision flows.",
         whyItMatters: "Shows product judgment, trust-centered UX, and decision-support thinking in a high-consequence domain.",
         links: [
-          { label: "Repo", href: "#" },
+          { label: "GitHub", href: "https://github.com/bhavyadalwadi" },
           { label: "Case Study", href: "/case-studies" },
         ],
       },
@@ -315,28 +315,28 @@ export const siteContent: SiteBlueprint = {
         oneLiner:
           "Portfolio analysis tool combining structured scoring with AI-assisted PM-style memos.",
         whyItMatters: "Shows how AI can support decision quality without replacing underlying analytical structure.",
-        links: [{ label: "Repo", href: "#" }],
+        links: [{ label: "GitHub", href: "https://github.com/bhavyadalwadi" }],
       },
       {
         name: "Price Pin",
         oneLiner:
           "Map-first product availability app built around nearby inventory, price confidence, and community reporting.",
         whyItMatters: "Shows geo-aware product design and the ability to shape messy multi-input workflows into something usable.",
-        links: [{ label: "Repo", href: "#" }],
+        links: [{ label: "GitHub", href: "https://github.com/bhavyadalwadi" }],
       },
       {
         name: "Kadi Tiri",
         oneLiner:
           "Multiplayer trick-taking game with bidding, partner selection, trick play, and server-owned room state.",
         whyItMatters: "Shows real-time state handling, game logic clarity, and interactive systems design under live constraints.",
-        links: [{ label: "Repo", href: "#" }],
+        links: [{ label: "GitHub", href: "https://github.com/bhavyadalwadi" }],
       },
       {
         name: "HA Home",
         oneLiner:
           "Home Assistant dashboard suite with custom Lovelace cards for room intelligence and energy visibility.",
         whyItMatters: "Shows systems thinking, automation judgment, and practical interest in operator-friendly home tooling.",
-        links: [{ label: "Repo", href: "#" }],
+        links: [{ label: "GitHub", href: "https://github.com/bhavyadalwadi" }],
       },
     ],
     archive: {
@@ -415,7 +415,7 @@ export const siteContent: SiteBlueprint = {
     snapshot: {
       title: "Snapshot",
       items: [
-        "Staff-leaning Full-Stack Engineer",
+        "Senior Full-Stack Engineer",
         "Product-focused builder with strong system judgment",
         "Experience spanning AI workflows, finance products, self-hosted systems, and interactive applications",
         "Based in San Jose, California",
@@ -455,7 +455,13 @@ export const siteContent: SiteBlueprint = {
           value: "Review implementation work and product thinking",
           href: "/projects",
           note: "Best for seeing how I actually build and scope software.",
-        }
+        },
+        {
+          label: "LinkedIn",
+          value: "Message directly on LinkedIn",
+          href: "https://www.linkedin.com/in/bhavyadalwadi/",
+          note: "Best for direct outreach and quick replies.",
+        },
       ],
     },
     closing: {
@@ -485,8 +491,8 @@ export const siteContent: SiteBlueprint = {
       ariaLabel: "Primary",
       homeAriaLabel: "Bhavya Dalwadi home",
       brandName: "Bhavya Dalwadi",
-      brandPrimary: "Staff Engineer",
-      brandSecondary: "Full-stack engineer",
+      brandPrimary: "Senior Engineer",
+      brandSecondary: "San Jose, CA",
       links: [
         { href: "/", label: "Home" },
         { href: "/about", label: "About" },

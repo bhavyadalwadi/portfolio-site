@@ -1,9 +1,9 @@
 {
   "basics": {
     "name": "Bhavya Dalwadi",
-    "headline": "Senior Frontend Engineer",
+    "headline": "Senior Full-Stack Engineer",
     "location": "San Jose, California",
-    "summary": "Senior Frontend Engineer with 8+ years of experience building large-scale web platforms, product systems, and complex user interfaces. Increasingly focused on AI-enabled workflows, structured evaluation, and practical tools built with systems judgment.",
+    "summary": "Senior Full-Stack Engineer with 8+ years of experience building large-scale web platforms, enterprise identity systems, and complex product interfaces. Increasingly focused on AI-enabled workflows, structured evaluation, and practical tools built with systems judgment across the full stack.",
     "email": "Use the contact page for the fastest response"
   },
   "skills": {
@@ -62,13 +62,7 @@
         "Applied prompt engineering and structured evaluation techniques to production-oriented AI integrations.",
         "Delivered frontend platform components supporting authentication, session management, and enterprise user workflows.",
         "Architected and shipped NestJS services for secure session management, SSO, userInfo, and logout orchestration.",
-        "Defined frontend architecture patterns, component standards, and performance best practices."
-      ]
-    },
-    {
-      "company": "Albertsons",
-      "title": "Software Engineer",
-      "highlights": [
+        "Defined frontend architecture patterns, component standards, and performance best practices.",
         "Enhanced web accessibility and ADA compliance.",
         "Contributed to migration from Teamsite-LiveSite to AEM.",
         "Led development of a permission-based user login system.",

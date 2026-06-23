@@ -2,13 +2,28 @@ import type { Metadata } from "next";
 
 export function getDefaultMetadata(): Metadata {
   return {
-    title: "Portfolio Signal",
-    description: "A portfolio website highlighting projects, outcomes, and direct contact paths.",
-    metadataBase: new URL("https://example.com"),
+    title: "Bhavya Dalwadi — Staff Full-Stack Engineer",
+    description:
+      "Staff-leaning full-stack engineer. Product judgment, AI systems, and end-to-end delivery. Based in San Jose, CA.",
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_SITE_URL ?? "https://bhavyadalwadi.com"
+    ),
+    icons: {
+      icon: "/favicon.svg",
+      shortcut: "/favicon.svg",
+    },
     openGraph: {
-      title: "Portfolio Signal",
-      description: "Explore featured case studies and start a conversation.",
+      title: "Bhavya Dalwadi — Staff Full-Stack Engineer",
+      description:
+        "Product-grade software for messy workflows. AI where it helps. Clear systems where it counts.",
+      siteName: "Bhavya Dalwadi",
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Bhavya Dalwadi — Staff Full-Stack Engineer",
+      description:
+        "Product-grade software for messy workflows. AI where it helps. Clear systems where it counts.",
     },
   };
 }

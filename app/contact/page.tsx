@@ -8,7 +8,7 @@ export default function ContactPage() {
 
   return (
     <section className="page-section section-shell reveal-soft">
-      <div className="section-heading measure">
+      <div className="section-heading">
         <div className="eyebrow">{ui.eyebrow}</div>
         <h1>{content.intro.title}</h1>
         <p className="route-lead">{content.intro.body}</p>

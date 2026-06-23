@@ -16,7 +16,7 @@
   --radius-lg: 22px;
   --radius-md: 14px;
   --radius-sm: 10px;
-  --space-section: clamp(4rem, 8vw, 7rem);
+  --space-section: clamp(2.2rem, 5vw, 4rem);
   --space-block: clamp(1.25rem, 3vw, 2.25rem);
   --space-inline: clamp(0.8rem, 1.8vw, 1.2rem);
   --duration-hover: 140ms;
@@ -189,6 +189,32 @@ nav.main-nav {
   outline: none;
 }
 
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.25rem;
+  padding-left: 0.55rem;
+  border-left: 1px solid var(--border);
+}
+
+.nav-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  color: var(--text-secondary);
+  transition: color var(--duration-hover) var(--ease-standard);
+}
+
+.nav-social-link:hover,
+.nav-social-link:focus-visible {
+  color: var(--text-primary);
+  outline: none;
+}
+
 .page-section {
   padding: var(--space-section) 0;
 }
@@ -227,6 +253,29 @@ nav.main-nav {
   margin: 0;
 }
 
+/* Inner page intro band — 2-col layout, smaller h1 */
+.section-heading:not(.measure) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: clamp(2rem, 4vw, 4rem);
+  row-gap: 0.4rem;
+  align-items: start;
+}
+
+.section-heading:not(.measure) > :not(.route-lead) {
+  grid-column: 1;
+}
+
+.section-heading:not(.measure) h1 {
+  font-size: clamp(1.7rem, 2.8vw, 2.6rem);
+  line-height: 1.05;
+}
+
+.section-heading:not(.measure) > .route-lead {
+  grid-column: 2;
+  max-width: none;
+}
+
 .section-heading h2 {
   font-size: clamp(1.8rem, 3.8vw, 2.8rem);
   line-height: 1;
@@ -244,7 +293,7 @@ nav.main-nav {
   grid-template-columns: 1fr;
   gap: 0.65rem;
   align-items: start;
-  padding: clamp(3.8rem, 7vw, 5.8rem) 0 3rem;
+  padding: clamp(2rem, 4vw, 3.4rem) 0 2rem;
   animation: reveal-up var(--duration-reveal) var(--ease-standard);
   position: relative;
 }
@@ -1814,6 +1863,17 @@ footer {
 
   .resume-role-date {
     white-space: normal;
+  }
+}
+
+@media (max-width: 760px) {
+  .section-heading:not(.measure) {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading:not(.measure) .route-lead {
+    grid-column: 1;
+    grid-row: auto;
   }
 }
 

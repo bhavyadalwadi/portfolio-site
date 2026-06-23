@@ -8,7 +8,7 @@ export default function ProjectsPage() {
 
   return (
     <section className="page-section section-shell reveal-soft">
-      <div className="section-heading measure">
+      <div className="section-heading">
         <div className="eyebrow">{ui.eyebrow}</div>
         <h1>{projects.intro.title}</h1>
         <p className="route-lead">{projects.intro.body}</p>

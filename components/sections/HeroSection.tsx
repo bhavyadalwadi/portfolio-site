@@ -5,9 +5,6 @@ import { HeroTerminal } from "@/components/sections/HeroTerminal";
 export function HeroSection({ hero }: { hero: SiteBlueprint["home"]["hero"] }) {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="hero-support hero-support-full">
-        <HeroTerminal terminal={hero.terminal} />
-      </div>
       <div className="hero-copy hero-copy-compact">
         <div className="hero-copy-topline">
           <div className="eyebrow kicker">{hero.eyebrow}</div>
@@ -29,6 +26,9 @@ export function HeroSection({ hero }: { hero: SiteBlueprint["home"]["hero"] }) {
             </div>
           </div>
         </div>
+      </div>
+      <div className="hero-support hero-support-full">
+        <HeroTerminal terminal={hero.terminal} />
       </div>
     </section>
   );

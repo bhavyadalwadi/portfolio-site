@@ -13,12 +13,7 @@
     "impactMetrics": ["Clear deployment docs", "Practical model routing"],
     "tags": ["AI Systems", "Full-Stack", "Local Infrastructure"],
     "featured": true,
-    "status": "published",
-    "heroImage": {
-      "id": "img-1",
-      "src": "/images/localllm.jpg",
-      "alt": "localLLM operator workflow overview"
-    }
+    "status": "published"
   },
   {
     "id": "project-2",

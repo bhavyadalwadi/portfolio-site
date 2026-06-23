@@ -7,7 +7,7 @@ export default function CaseStudiesPage() {
 
   return (
     <section className="page-section section-shell reveal-soft" aria-labelledby="case-studies-title">
-      <div className="section-heading measure">
+      <div className="section-heading">
         <div className="eyebrow">{ui.eyebrow}</div>
         <h1 id="case-studies-title">{content.intro.title}</h1>
         <p className="route-lead">{content.intro.body}</p>
