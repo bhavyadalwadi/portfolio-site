@@ -1,16 +1,16 @@
-# Graph Report - portfolio-site  (2026-05-26)
+# Graph Report - portfolio-site  (2026-06-17)
 
 ## Corpus Check
-- 187 files · ~59,533 words
+- 191 files · ~61,546 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1145 nodes · 1189 edges · 130 communities (112 shown, 18 thin omitted)
+- 1182 nodes · 1266 edges · 141 communities (122 shown, 19 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9354122f`
+- Built from commit: `ffd37b13`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -107,44 +107,55 @@
 - [[_COMMUNITY_Community 97|Community 97]]
 - [[_COMMUNITY_Community 98|Community 98]]
 - [[_COMMUNITY_Community 99|Community 99]]
+- [[_COMMUNITY_Community 130|Community 130]]
+- [[_COMMUNITY_Community 131|Community 131]]
+- [[_COMMUNITY_Community 132|Community 132]]
+- [[_COMMUNITY_Community 133|Community 133]]
+- [[_COMMUNITY_Community 134|Community 134]]
+- [[_COMMUNITY_Community 135|Community 135]]
+- [[_COMMUNITY_Community 136|Community 136]]
+- [[_COMMUNITY_Community 137|Community 137]]
+- [[_COMMUNITY_Community 138|Community 138]]
+- [[_COMMUNITY_Community 139|Community 139]]
+- [[_COMMUNITY_Community 140|Community 140]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `files` - 20 edges
-2. `compilerOptions` - 17 edges
-3. `portfolio-site Project Context` - 16 edges
-4. `devDependencies` - 15 edges
-5. `Primary App` - 15 edges
-6. `portfolio-site Architecture` - 14 edges
-7. `Tasks: Portfolio Website` - 13 edges
-8. `Tasks: Engineering Website Content Architecture` - 13 edges
-9. `Tasks: Engineering Portfolio Visual Direction` - 13 edges
-10. `Tasks: [FEATURE NAME]` - 13 edges
+1. `siteContent` - 21 edges
+2. `files` - 20 edges
+3. `compilerOptions` - 17 edges
+4. `portfolio-site Project Context` - 16 edges
+5. `devDependencies` - 15 edges
+6. `Project Status` - 15 edges
+7. `Primary App` - 15 edges
+8. `resolveRuleBasedQuery()` - 14 edges
+9. `portfolio-site Architecture` - 14 edges
+10. `Tasks: Portfolio Website` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `HomePage()` --calls--> `getFeaturedProjects()`  [EXTRACTED]
-  app/page.tsx → lib/content/projects.ts
 - `ProjectDetailPage()` --calls--> `getProjectBySlug()`  [EXTRACTED]
   app/projects/[slug]/page.tsx → lib/content/projects.ts
 - `HomePage()` --calls--> `getHomeContent()`  [EXTRACTED]
   app/page.tsx → lib/content/site-content-loader.ts
+- `HomePage()` --calls--> `getFeaturedProjects()`  [EXTRACTED]
+  app/page.tsx → lib/content/projects.ts
 - `ContactPage()` --calls--> `getContactContent()`  [EXTRACTED]
   app/contact/page.tsx → lib/content/site-content-loader.ts
 - `ProjectsPage()` --calls--> `getProjectsContent()`  [EXTRACTED]
   app/projects/page.tsx → lib/content/site-content-loader.ts
 
-## Communities (130 total, 18 thin omitted)
+## Communities (141 total, 19 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.06
-Nodes (27): AboutPage(), HomePage(), CaseStudiesPage(), buildResumePageContent(), getStructuredResume(), StructuredResume, SiteBlueprint, getAboutContent() (+19 more)
+Cohesion: 0.21
+Nodes (10): buildResumePageContent(), getStructuredResume(), StructuredResume, getResumeContent(), getStructuredResumeContent(), ResumePage(), escapeHtml(), highlightJson() (+2 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.07
-Nodes (34): availability, focusAreas, fullName, getProfile(), headline, id, links, location (+26 more)
+Cohesion: 0.14
+Nodes (16): getProfile(), ArchiveEntry, CaseStudyEntry, ContactMethod, HeroRoleMatcherEntry, HeroTerminalResponseSeed, HomePreviewProject, isString() (+8 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.1
-Nodes (32): ActionLink, siteContent, HeroTerminalData, TranscriptEntry, buildTerminalContext(), buildMessages(), fetchWithTimeout(), getProvider() (+24 more)
+Nodes (33): ActionLink, buildTerminalContext(), buildMessages(), fetchWithTimeout(), getProvider(), Provider, ProviderPayload, resolveAiFallback() (+25 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.06
@@ -179,8 +190,8 @@ Cohesion: 0.08
 Nodes (23): files, .github/agents/speckit.analyze.agent.md, .github/agents/speckit.checklist.agent.md, .github/agents/speckit.clarify.agent.md, .github/agents/speckit.constitution.agent.md, .github/agents/speckit.implement.agent.md, .github/agents/speckit.plan.agent.md, .github/agents/speckit.specify.agent.md (+15 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.16
-Nodes (14): ContactPage(), POST(), formatDiscordMessage(), getWebhookUrl(), sendDiscordWebhook(), ContactResponse, submitContact(), getContactContent() (+6 more)
+Cohesion: 0.22
+Nodes (11): POST(), formatDiscordMessage(), getWebhookUrl(), sendDiscordWebhook(), ContactResponse, submitContact(), ContactForm(), errors (+3 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.09
@@ -430,25 +441,65 @@ Nodes (3): Graphify-first repo discovery, portfolio-site Decision Log, Preserve 
 Cohesion: 0.5
 Nodes (3): Critical Entrypoints, Read First, Top-Level Modules
 
+### Community 130 - "Community 130"
+Cohesion: 0.13
+Nodes (9): HomePage(), getFeaturedProjects(), SiteBlueprint, getHomeContent(), HeroMatcherData, HeroSection(), HeroTerminal(), HeroTerminalData (+1 more)
+
+### Community 131 - "Community 131"
+Cohesion: 0.12
+Nodes (15): Attention Now, Benefit, Category, Completion, Current Plan, Current Status, Done, Ecosystem (+7 more)
+
+### Community 132 - "Community 132"
+Cohesion: 0.24
+Nodes (8): getProjectBySlug(), getProjects(), parsedProjects(), ProjectDetailSections(), ErrorState(), ProjectDetailPage(), project, projects
+
+### Community 133 - "Community 133"
+Cohesion: 0.2
+Nodes (5): ContactPage(), getContactContent(), getProjectsContent(), methods, ProjectsPage()
+
+### Community 134 - "Community 134"
+Cohesion: 0.47
+Nodes (3): Project, siteContent, ProjectTagList()
+
+### Community 135 - "Community 135"
+Cohesion: 0.22
+Nodes (8): availability, focusAreas, fullName, headline, id, links, location, summary
+
+### Community 136 - "Community 136"
+Cohesion: 0.25
+Nodes (7): Current Phase, Key Metrics, Known Issues, Next Steps, Project Status, Questions or Feedback, Recent Changes
+
+### Community 137 - "Community 137"
+Cohesion: 0.38
+Nodes (4): AboutPage(), getAboutContent(), AboutContent, AboutSection()
+
+### Community 138 - "Community 138"
+Cohesion: 0.47
+Nodes (4): expectHasClass(), expectReadableCopy(), eyebrow, heading
+
+### Community 139 - "Community 139"
+Cohesion: 0.4
+Nodes (4): Code Changes, Contributing, License, Reporting Issues
+
 ## Knowledge Gaps
-- **651 isolated node(s):** `name`, `version`, `private`, `dev`, `build` (+646 more)
+- **677 isolated node(s):** `name`, `version`, `private`, `dev`, `build` (+672 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `siteContent` connect `Community 2` to `Community 0`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `siteContent` connect `Community 134` to `Community 0`, `Community 130`, `Community 2`, `Community 132`, `Community 133`, `Community 137`, `Community 11`, `Community 140`, `Community 30`?**
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `private` to the rest of the system?**
-  _651 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.06 - nodes in this community are weakly interconnected._
+  _677 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.07 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.14 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.06 - nodes in this community are weakly interconnected._
 - **Should `Community 4` be split into smaller, more focused modules?**
   _Cohesion score 0.06 - nodes in this community are weakly interconnected._
+- **Should `Community 5` be split into smaller, more focused modules?**
+  _Cohesion score 0.07 - nodes in this community are weakly interconnected._
