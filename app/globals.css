@@ -225,7 +225,7 @@ nav.main-nav {
 
 .section-shell {
   display: grid;
-  gap: 1.4rem;
+  gap: 0.5rem;
 }
 
 .section-heading {
@@ -1524,9 +1524,98 @@ form.contact-form {
   max-width: 700px;
 }
 
+/* Document-style resume layout */
+.resume-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.5rem;
+}
+
+.resume-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-full {
+  grid-column: 1 / -1;
+}
+
+.resume-section {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.resume-col .resume-section:first-child,
+.resume-full .resume-section:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.resume-layout .meta-label {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Skills: 2-col chip grid */
+.resume-layout .resume-skill-groups .tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.resume-layout .resume-skill-groups .tag {
+  background: rgba(36, 82, 122, 0.07);
+  color: var(--text-secondary);
+  border: 1px solid rgba(36, 82, 122, 0.14);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  padding: 0.38rem 0.5rem;
+  font-size: 0.72rem;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+/* Stronger typography hierarchy in resume */
+.resume-layout h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+}
+
+.resume-layout .resume-skill-groups strong {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.resume-timeline-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(36, 82, 122, 0.1);
+}
+
+.resume-cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 0.5rem;
+  grid-column: 1 / -1;
+}
+
 .about-grid {
   display: grid;
-  gap: 1.2rem;
+  gap: 0.5rem;
   grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
 }
 
@@ -1541,6 +1630,37 @@ form.contact-form {
 .focus-stack {
   display: grid;
   gap: 0.65rem;
+}
+
+/* Compact education entries */
+.resume-education-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.resume-education-item {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.resume-education-degree {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.resume-education-meta {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+}
+
+.resume-education-date {
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
 }
 
 .resume-highlight-stack {
@@ -1564,6 +1684,23 @@ form.contact-form {
 
 .resume-highlight-stack p {
   margin: 0;
+}
+
+/* Accent left-border on each win */
+.resume-highlight-stack article {
+  border-left: 2px solid rgba(36, 82, 122, 0.3);
+  padding-left: 0.85rem;
+}
+
+/* Target Direction items as tinted chips */
+.focus-stack-chips p.body-copy {
+  background: rgba(36, 82, 122, 0.06);
+  border: 1px solid rgba(36, 82, 122, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
 }
 
 .resume-mode-switch {
@@ -1677,7 +1814,7 @@ form.contact-form {
   top: 0.68rem;
   bottom: -1.4rem;
   width: 1px;
-  background: rgba(31, 36, 38, 0.08);
+  background: rgba(36, 82, 122, 0.18);
 }
 
 .resume-timeline-item:last-child .resume-timeline-rail::after {
@@ -1850,6 +1987,14 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .resume-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-full {
+    grid-column: 1;
+  }
+
   .resume-role-head,
   .resume-json-toolbar {
     flex-direction: column;
@@ -1969,6 +2114,340 @@ footer {
     max-width: none;
   }
 }
+
+/* ─── One-page redesign styles ───────────────────────────── */
+
+.hero-onepage {
+  padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2rem, 4vw, 3.5rem);
+}
+
+.hero-terminal-wrap {
+  margin-top: 2rem;
+}
+
+.hero-main {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 58rem;
+}
+
+.hero-main h1 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.hero-subhead {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.65;
+  max-width: 60ch;
+  margin: 0;
+}
+
+.hero-meta {
+  color: var(--text-tertiary);
+  font-size: 0.88rem;
+  margin: 0;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+/* Impact Achievements */
+.impact-achievements {
+  display: grid;
+  gap: 0;
+  padding: 1.2rem 0;
+  border-top: 1px solid rgba(36, 82, 122, 0.12);
+  border-bottom: 1px solid rgba(36, 82, 122, 0.12);
+  margin-top: 0.5rem;
+}
+
+.impact-achievement {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(36, 82, 122, 0.07);
+}
+
+.impact-achievement:last-child {
+  border-bottom: none;
+}
+
+.impact-achievement-metric {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+  min-width: 13rem;
+  flex-shrink: 0;
+}
+
+.impact-achievement-context {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Section Intro */
+.section-intro {
+  display: grid;
+  gap: 0.55rem;
+  margin-bottom: 2rem;
+}
+
+.section-intro h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.project-card {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.4rem;
+  align-content: start;
+}
+
+.project-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.68;
+}
+
+.project-card-footer {
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(36, 82, 122, 0.08);
+  margin-top: auto;
+}
+
+.project-card-link {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+  transition:
+    color var(--duration-hover) var(--ease-standard),
+    transform var(--duration-hover) var(--ease-standard);
+  display: inline-flex;
+  align-items: center;
+}
+
+.project-card-link:hover,
+.project-card-link:focus-visible {
+  color: var(--accent-strong);
+  outline: none;
+}
+
+/* Strengths Grid */
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem 2.5rem;
+}
+
+.strength-item {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.2rem 0 0 1rem;
+  border-left: 2px solid rgba(36, 82, 122, 0.18);
+}
+
+.strength-item h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.strength-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.68;
+  max-width: 38ch;
+}
+
+/* Experience */
+.experience-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(36, 82, 122, 0.12);
+}
+
+.experience-item {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(36, 82, 122, 0.12);
+}
+
+.experience-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.experience-company {
+  font-weight: 600;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.experience-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.experience-role {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.experience-summary {
+  margin: 0.2rem 0 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 72ch;
+}
+
+.education-inline {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 1rem 0 0.5rem;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  flex-wrap: wrap;
+}
+
+.education-sep {
+  color: rgba(31, 36, 38, 0.28);
+}
+
+/* Stack */
+.stack-groups {
+  display: grid;
+  gap: 0;
+}
+
+.stack-group {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(36, 82, 122, 0.08);
+}
+
+.stack-group:first-child {
+  border-top: 1px solid rgba(36, 82, 122, 0.08);
+}
+
+.stack-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 0.32rem;
+}
+
+.tag-light {
+  background: rgba(36, 82, 122, 0.09);
+  color: var(--text-primary);
+  border: 1px solid rgba(36, 82, 122, 0.18);
+}
+
+/* Contact CTA */
+.contact-cta {
+  display: grid;
+  gap: 1rem;
+  max-width: 52rem;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-top: 1px solid rgba(36, 82, 122, 0.12);
+}
+
+.contact-cta h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.contact-cta-actions {
+  margin-top: 0.35rem;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strengths-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .impact-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .impact-stat:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .stack-group {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .experience-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   html {

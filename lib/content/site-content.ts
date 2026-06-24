@@ -10,13 +10,13 @@ export const siteContent: SiteBlueprint = {
   home: {
     hero: {
       eyebrow: "Senior Full-Stack Engineer",
-      headline: "Product-grade software for messy workflows. AI where it helps. Clear systems where it counts.",
+      headline: "I build full-stack systems that hold up — clear workflows, grounded AI, real delivery.",
       subheadline:
-        "I work across interface, backend, and workflow layers with a bias toward durable architecture, restrained scope, and software people can actually operate.",
+        "8+ years owning product behavior end-to-end. Currently at Albertsons, leading auth platform work for the Safeway ecosystem and shipping AI-enabled tooling with Vertex AI.",
       supportingLine:
-        "San Jose, CA. Best fit for Senior and Staff-level product and platform roles where system design, full-stack delivery, and engineering judgment all matter.",
-      primaryCta: { label: "View Flagship Work", href: "/projects/localllm" },
-      secondaryCta: { label: "See Resume", href: "/resume" },
+        "San Jose, CA · Open to Senior and Staff-level roles",
+      primaryCta: { label: "See My Work", href: "#work" },
+      secondaryCta: { label: "Resume", href: "/resume" },
       terminal: {
         label: "portfolio.sh",
         introLine: "Ask a direct question. The terminal answers first, then points you to the right work.",
@@ -177,24 +177,19 @@ export const siteContent: SiteBlueprint = {
         "My best work happens when engineering is closely tied to product judgment, workflow design, and disciplined scope.",
       items: [
         {
-          title: "Full-Stack Delivery",
+          title: "Full-Stack Ownership",
           body:
-            "I am comfortable owning product behavior end to end, from interface and information architecture to backend workflows, data handling, and release readiness.",
-        },
-        {
-          title: "Product-Minded Systems",
-          body:
-            "I care about what the user is actually trying to get done. I prefer systems that reduce friction, surface the right decisions, and stay legible as they grow.",
+            "I own product behavior end to end — interface, backend workflows, data handling, and release readiness. No handoffs to cover a blind spot.",
         },
         {
           title: "Pragmatic AI",
           body:
-            "I treat AI as a capability inside real software, not as a headline. The real work is usually in workflow design, routing, guardrails, and making the output genuinely usable.",
+            "AI is a capability, not a headline. I focus on routing, output quality, and usable workflows — not thin integrations that fall apart in production.",
         },
         {
-          title: "Scope Control",
+          title: "Scope Discipline",
           body:
-            "I prefer strong boundaries, incremental progress, and clear tradeoffs over speculative architecture and avoidable complexity.",
+            "Strong scope boundaries, incremental progress, and honest tradeoffs. I build for what ships and holds up, not for speculative futures.",
         },
       ],
     },
@@ -478,6 +473,9 @@ export const siteContent: SiteBlueprint = {
       brandPrimary: "Senior Engineer",
       brandSecondary: "San Jose, CA",
       links: [
+        { href: "/#work", label: "Work" },
+        { href: "/#experience", label: "Experience" },
+        { href: "/#contact", label: "Contact" },
         { href: "/resume", label: "Resume" },
       ],
       writingLink: { href: "/writing", label: "Writing" },

@@ -16,9 +16,11 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
   const ui = siteContent.ui.resumePage;
 
   return (
-    <div className="section-shell">
-      <div className="about-grid about-grid-wide">
-        <article className="about-panel about-panel-wide interaction-soft">
+    <div className="resume-layout">
+
+      {/* ── Row 1: Identity + Skills ── */}
+      <div className="resume-col">
+        <section className="resume-section">
           <div className="meta-label">{resume.snapshot.title}</div>
           <ul>
             {(resume.snapshot.items ?? []).map((item) => (
@@ -33,21 +35,11 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
               </article>
             ))}
           </div>
-        </article>
-
-        <article className="about-panel interaction-soft">
-          <div className="meta-label">{resume.highlights.title}</div>
-          <p className="body-copy">{resume.highlights.body}</p>
-          <div className="focus-stack">
-            {structuredResume.strengths.map((item) => (
-              <p key={item} className="body-copy">{item}</p>
-            ))}
-          </div>
-        </article>
+        </section>
       </div>
 
-      <div className="about-grid">
-        <article className="about-panel interaction-soft">
+      <div className="resume-col">
+        <section className="resume-section">
           <div className="meta-label">{ui.skillsLabel}</div>
           <div className="resume-skill-groups">
             <div>
@@ -71,77 +63,94 @@ export function ResumeView({ resume, structuredResume }: { resume: ResumeContent
               </div>
             </div>
           </div>
-        </article>
+        </section>
+      </div>
 
-        <article className="about-panel interaction-soft">
-          <div className="meta-label">{ui.targetDirectionLabel}</div>
-          <div className="focus-stack">
-            {structuredResume.targetDirection.map((item) => (
+      {/* ── Experience (full-width, prime position) ── */}
+      <div className="resume-full">
+        <section className="resume-section">
+          <div className="meta-label">{ui.experienceLabel}</div>
+          <div className="resume-experience-timeline">
+            {structuredResume.experience.map((role) => (
+              <article key={`${role.company}-${role.title}`} className="resume-timeline-item">
+                <div className="resume-timeline-rail" aria-hidden="true">
+                  <span className="resume-timeline-dot" />
+                </div>
+                <div className="resume-timeline-card">
+                  <div className="resume-role-head">
+                    <div>
+                      <h3>{role.title}</h3>
+                      <p className="body-copy">{role.company}</p>
+                    </div>
+                    {(role.startDate || role.endDate) ? (
+                      <span className="resume-role-date">
+                        {[role.startDate, role.endDate ?? "Present"].filter(Boolean).map(formatDate).join(" – ")}
+                      </span>
+                    ) : null}
+                  </div>
+                  <ul>
+                    {role.highlights.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      {/* ── Row 3: Supporting context ── */}
+      <div className="resume-col">
+        <section className="resume-section">
+          <div className="meta-label">{resume.highlights.title}</div>
+          <div className="focus-stack focus-stack-chips">
+            {structuredResume.strengths.map((item) => (
               <p key={item} className="body-copy">{item}</p>
             ))}
           </div>
-          <div className="meta-label" style={{ marginTop: "0.85rem" }}>{structuredResume.fit.title}</div>
-          <p className="body-copy">{structuredResume.fit.body}</p>
-        </article>
-      </div>
+        </section>
 
-      <article className="about-panel interaction-soft">
-        <div className="meta-label">{ui.experienceLabel}</div>
-        <div className="resume-experience-timeline">
-          {structuredResume.experience.map((role) => (
-            <article key={`${role.company}-${role.title}`} className="resume-timeline-item">
-              <div className="resume-timeline-rail" aria-hidden="true">
-                <span className="resume-timeline-dot" />
-              </div>
-              <div className="resume-timeline-card">
-                <div className="resume-role-head">
-                  <div>
-                    <h3>{role.title}</h3>
-                    <p className="body-copy">{role.company}</p>
-                  </div>
-                  {(role.startDate || role.endDate) ? (
-                    <span className="resume-role-date">
-                      {[role.startDate, role.endDate ?? "Present"].filter(Boolean).map(formatDate).join(" – ")}
-                    </span>
-                  ) : null}
-                </div>
-                <ul>
-                  {role.highlights.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))}
-        </div>
-      </article>
-
-      <div className="about-grid">
-        <article className="about-panel interaction-soft">
+        <section className="resume-section">
           <div className="meta-label">{ui.leadershipSignalsLabel}</div>
           <ul>
             {structuredResume.leadershipSignals.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </article>
-
-        <article className="about-panel interaction-soft">
-          <div className="meta-label">{ui.educationLabel}</div>
-          <div className="focus-stack">
-            {structuredResume.education.map((entry) => (
-              <article key={`${entry.institution}-${entry.degree}`}>
-                <h3>{entry.degree} in {entry.field}</h3>
-                <p className="body-copy">{entry.institution}</p>
-                <p className="body-copy">{entry.graduationDate}</p>
-              </article>
-            ))}
-          </div>
-        </article>
+        </section>
       </div>
 
-      <div className="hero-actions" style={{ marginTop: "1rem" }}>
-        <Link href={resume.primaryCta.href} className="link-btn">{resume.primaryCta.label}</Link>
+      <div className="resume-col">
+        <section className="resume-section">
+          <div className="meta-label">{ui.targetDirectionLabel}</div>
+          <div className="focus-stack focus-stack-chips">
+            {structuredResume.targetDirection.map((item) => (
+              <p key={item} className="body-copy">{item}</p>
+            ))}
+          </div>
+          <div className="meta-label" style={{ marginTop: "0.85rem" }}>{structuredResume.fit.title}</div>
+          <p className="body-copy">{structuredResume.fit.body}</p>
+        </section>
+
+        <section className="resume-section">
+          <div className="meta-label">{ui.educationLabel}</div>
+          <div className="resume-education-list">
+            {structuredResume.education.map((entry) => (
+              <div key={`${entry.institution}-${entry.degree}`} className="resume-education-item">
+                <div className="resume-education-degree">{entry.degree} in {entry.field}</div>
+                <div className="resume-education-meta">
+                  <span>{entry.institution}</span>
+                  <span className="resume-education-date">{entry.graduationDate}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      {/* CTA */}
+      <div className="resume-cta resume-full">
         <Link href={resume.secondaryCta.href} className="link-btn">{resume.secondaryCta.label}</Link>
       </div>
     </div>
