@@ -25,8 +25,8 @@ export function ScrollEffects() {
         });
       },
       {
-        threshold: 0.14,
-        rootMargin: "0px 0px -8% 0px",
+        threshold: 0,
+        rootMargin: "0px 0px -4% 0px",
       },
     );
 
